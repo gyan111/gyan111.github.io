@@ -39,19 +39,11 @@
 			width: 24%;	
 		}
 
-		/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
-
-		@media only screen and (max-width: 480px) {
-			.col { 
-				margin: 1% 0 1% 0%;
-			}
-			.span_4, .span_2, .bigbutton { width: 100%; }
-		}
 		/* Buttons */
 		/***FIRST STYLE THE BUTTON***/
 		input.bigbutton {
 			/*width:100%;/*/
-			background: #3e9cbf; /*the colour of the button*/
+			background: #3E9CFF; /* #3e9cbf the colour of the button*/
 			padding: 8px 14px 10px; /*apply some padding inside the button*/
 			border:1px solid #3e9cbf; /*required or the default border for the browser will appear*/
 			cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
@@ -78,14 +70,24 @@
 			-moz-box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 2px 5px #999;
 			box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 2px 5px #999;
 		}
-
+		
+		/* Add Place holder in the content editable div */
 		[contenteditable=true]:empty:before{
 		  content: attr(placeholder);
 		  display: block; /* For Firefox */
 		}
+
+		/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+		@media only screen and (max-width: 480px) {
+			.col { 
+				margin: 1% 0 1% 0%;
+			}
+			.span_4, .span_2, .bigbutton { width: 100% !important; }
+		}
 	</style>
 </head>
 <body>
+<p align="center"><strong>Odia Font Converter</strong></p>
 <div class="section group">
 	<div class="col span_2"></div>
 	<div class="col span_4">
@@ -99,7 +101,7 @@
 	</div>
 	<div class="col span_4">
 		<div align="left">
-			<input class="bigbutton" type="submit" value="Test" style="width: 100%" />
+			<input class="bigbutton" type="submit" value="Convert" style="width: 100%" />
 		</div>
 		<div class="input" contentEditable="true" placeholder="Converted Text"></div>
 	</div>
