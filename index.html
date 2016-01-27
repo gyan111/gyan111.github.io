@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		/*  SECTIONS  */
+		.section {
+			clear: both;
+			padding: 0px;
+			margin: 0px;
+		}
+
+		/*  COLUMN SETUP  */
+		.col {
+			display: block;
+			float:left;
+			margin: 1% 0 1% 1%;
+		}
+		.col:first-child { margin-left: 0; }
+
+		/*  GROUPING  */
+		.group:before,
+		.group:after { content:""; display:table; }
+		.group:after { clear:both;}
+		.group { zoom:1; /* For IE 6/7 */ }
+		/*  GRIDS */
+		.span_2 { width: 5%; }
+		.span_4 { width: 43.49%; }
+
+		.input {
+			height: 500px;
+			border: 1px solid #ccc;
+			margin-top: 15px;
+			align:left;
+
+		}
+		.options {
+			width: 24%;	
+		}
+
+		/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+		@media only screen and (max-width: 480px) {
+			.col { 
+				margin: 1% 0 1% 0%;
+			}
+			.span_4, .span_2, .bigbutton { width: 100%; }
+		}
+		/* Buttons */
+		/***FIRST STYLE THE BUTTON***/
+		input.bigbutton {
+			/*width:100%;/*/
+			background: #3e9cbf; /*the colour of the button*/
+			padding: 8px 14px 10px; /*apply some padding inside the button*/
+			border:1px solid #3e9cbf; /*required or the default border for the browser will appear*/
+			cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+			/*style the text*/
+			font-size:1.0em;
+			font-family:Oswald, sans-serif; /*Oswald is available from http://www.google.com/webfonts/specimen/Oswald*/
+			letter-spacing:.1em;
+			text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.3); /*give the text a shadow - doesn't appear in Opera 12.02 or earlier*/
+			color: #fff;
+			/*use box-shadow to give the button some depth - see cssdemos.tupence.co.uk/box-shadow.htm#demo7 for more info on this technique*/
+			-webkit-box-shadow: inset 0px 1px 0px #3e9cbf, 0px 5px 0px 0px #205c73, 0px 10px 5px #999;
+			-moz-box-shadow: inset 0px 1px 0px #3e9cbf, 0px 5px 0px 0px #205c73, 0px 10px 5px #999;
+			box-shadow: inset 0px 1px 0px #3e9cbf, 0px 5px 0px 0px #205c73, 0px 10px 5px #999;
+			/*give the corners a small curve*/
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 10px;
+			border-radius: 2px;
+		}
+		/***SET THE BUTTON'S HOVER AND FOCUS STATES***/
+		input.bigbutton:hover, input.bigbutton:focus {
+			color:#dfe7ea;
+			/*reduce the size of the shadow to give a pushed effect*/
+			-webkit-box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 2px 5px #999;
+			-moz-box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 2px 5px #999;
+			box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 2px 5px #999;
+		}
+
+		[contenteditable=true]:empty:before{
+		  content: attr(placeholder);
+		  display: block; /* For Firefox */
+		}
+	</style>
+</head>
+<body>
+<div class="section group">
+	<div class="col span_2"></div>
+	<div class="col span_4">
+		<div align="left">
+			<input class="bigbutton" type="submit" value="Akruti" style="width: 20%" />
+			<input class="bigbutton" type="submit" value="Sreelipi" style="width: 22%"/> 
+			<input class="bigbutton" type="submit" value="GIST" style="width: 20%"/> 
+			<input class="bigbutton" type="submit" value="Sambad EML" style="width: 35.8%"/> 
+		</div>
+		<div class="input" contentEditable="true" placeholder="Enter text here..."></div>
+	</div>
+	<div class="col span_4">
+		<div align="left">
+			<input class="bigbutton" type="submit" value="Test" style="width: 100%" />
+		</div>
+		<div class="input" contentEditable="true" placeholder="Converted Text"></div>
+	</div>
+	<div class="col span_2"></div>
+</div>
+</body>
+</html>
