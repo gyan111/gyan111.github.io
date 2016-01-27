@@ -31,6 +31,7 @@
 
 		.input {
 			height: 500px;
+			width: 100%;
 			border: 1px solid #ccc;
 			margin-top: 15px;
 			align:left;
@@ -81,14 +82,6 @@
 			width: 35.8%;		
 		}
 
-		
-		/* Add Place holder in the content editable div */
-		[contenteditable=true]:empty:before{
-		  content: attr(placeholder);
-		  display: block; /* For Firefox */
-		}
-
-
 		/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 		@media only screen and (max-width: 786px) {
 			.col { 
@@ -109,29 +102,31 @@
 	</style>
 </head>
 <body>
-<p align="center"><strong>Odia Font Converter</strong></p>
+<p align="center" style="font-size: 18px"><strong>Odia Font Converter</strong></p>
 <div class="section group">
 	<div class="col span_2"></div>
 	<div class="col span_4">
 		<div align="left">
-			<input class="bigbutton" type="submit" id="akruti" value="Akruti" />
+			<input class="bigbutton" onclick="akruti_to_unicode()" type="submit" id="akruti" value="Akruti" />
 			<input class="bigbutton" type="submit" id="sreelipi" value="Sreelipi" /> 
 			<input class="bigbutton" type="submit" id="gist" value="GIST"/> 
 			<input class="bigbutton" type="submit" id="sambad_eml" value="Sambad EML" /> 
 		</div>
-		<div class="input" contentEditable="true" placeholder="Enter text here..."></div>
+		<textarea class="input" placeholder="Enter text here..." id="input_text"></textarea>
 	</div>
 	<div class="col span_4">
 		<div align="left">
 			<input class="bigbutton" type="submit" value="Convert" style="width: 100%" />
 		</div>
-		<div class="input" contentEditable="true" placeholder="Converted Text"></div>
+		<textarea class="input" placeholder="Convereted Text" id="unicode_text"></textarea>
 	</div>
 	<div class="col span_2"></div>
 </div>
 <div align="center">
 	<a href="about.html" align="center">About this converter</a>
 </div>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="adalabadala.js"></script>
 </body>
 </html>
