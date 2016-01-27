@@ -43,6 +43,7 @@
 		/***FIRST STYLE THE BUTTON***/
 		input.bigbutton {
 			/*width:100%;/*/
+			margin-top: 10px;
 			background: #3E9CFF; /* #3e9cbf the colour of the button*/
 			padding: 8px 14px 10px; /*apply some padding inside the button*/
 			border:1px solid #3e9cbf; /*required or the default border for the browser will appear*/
@@ -78,11 +79,11 @@
 		}
 
 		/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
-		@media only screen and (max-width: 480px) {
+		@media only screen and (max-width: 800px) {
 			.col { 
 				margin: 1% 0 1% 0%;
 			}
-			.span_4, .span_2, .bigbutton { width: 100% !important; }
+			.col, .section, .group, .span_4, .span_2, .bigbutton { width: 100%; }
 		}
 	</style>
 </head>
