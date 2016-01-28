@@ -73,13 +73,13 @@
 		}
 		/* Setting width for particular buttons//responive issue*/
 		#akruti, #gist {
-			width: 20%;		
+			width: 16%;		
 		}
-		#sreelipi {
-			width: 22%;		
+		#sreelipi, #apranta {
+			width: 18.5%;		
 		}
 		#sambad_eml {
-			width: 35.8%;		
+			width: 27.3%;		
 		}
 
 		/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
@@ -90,14 +90,12 @@
 			.col, .section, .group, .span_4, .span_2, .bigbutton { width: 100%; }
 		}
 		@media only screen and (max-width: 560px) {
-			#akruti,  #gist, #sreelipi, #sambad_eml{
+			#akruti, #gist, #sreelipi, #sambad_eml, #apranta {
 				width: 100%			
 			}
 		}
-		@media only screen and (min-width:787px) and (max-width: 1279px) {
-			#gist {
-				width: 19%			
-			}
+		@media only screen and (min-width:787px) and (max-width: 1000px) {
+			.col, .section, .group, .span_4, .span_2, .bigbutton { width: 100%; }
 		}
 	</style>
 </head>
@@ -108,15 +106,16 @@
 	<div class="col span_4">
 		<div align="left">
 			<input class="bigbutton" onclick="akruti_to_unicode()" type="submit" id="akruti" value="Akruti" />
-			<input class="bigbutton" type="submit" id="sreelipi" value="Sreelipi" /> 
-			<input class="bigbutton" type="submit" id="gist" value="GIST"/> 
-			<input class="bigbutton" type="submit" id="sambad_eml" value="Sambad EML" /> 
+			<input class="bigbutton" onclick="sreelipi_to_unicode()" type="submit" id="sreelipi" value="Sreelipi" />
+			<input class="bigbutton" onclick="gist_to_unicode()" type="submit" id="gist" value="GIST"/> 
+			<input class="bigbutton" onclick="apranta_to_unicode()" type="submit" id="apranta" value="Apranta" /> 
+			<input class="bigbutton" onclick="sambad_eml_to_unicode()" type="submit" id="sambad_eml" value="Sambad EML" /> 
 		</div>
 		<textarea class="input" placeholder="Enter text here..." id="input_text"></textarea>
 	</div>
 	<div class="col span_4">
 		<div align="left">
-			<input class="bigbutton" type="submit" value="Converted Unicode Text" style="width: 100%" />
+			<input class="bigbutton" type="submit" value="Converted Unicode Text" id="unicode_text_button" style="width: 100%" />
 		</div>
 		<textarea class="input" placeholder="Convereted Text" id="unicode_text"></textarea>
 	</div>
@@ -125,8 +124,6 @@
 <div align="center">
 	<a href="about.html" align="center">About this converter</a>
 </div>
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="adalabadala.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
