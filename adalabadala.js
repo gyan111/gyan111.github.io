@@ -1,6 +1,13 @@
 // Using pure javascript code as it can be used as offline 
+function check_input() {
+    if (document.getElementById('input_text').value == "") {
+        alert('Nothing to convert. Paste your text in the left side box first.')
+        return false;
+    }
+}
 function akruti_to_unicode()
 {
+    check_input();
   //var conversion_array = new Array(" û", " ।", "ö" , " ।" ,"÷÷÷", "","£" , "୍ମ" ,"à" , "୍ମ" , "á" , "୍ମୃ" , "ã" , "୍ର" ,"ä" , "୍ଲ" , "å" , "୍ଭ" ,"æ" , "୍ଳ" , "ç" , "୍ୱ" , "è" , "୍ସ" , "ý", "୍ୟ" , "¥", "୍ୟ" ,"ó", "ିଁ" , "Iß" , "ୱ", "Wÿ" , "ଡ଼" , "Xÿ" , "ଢ଼" , "Pÿ" , "ଚ" , "[ô" , "ଥି" ,"]ô" , "ଧି" , "Lô" , "ଖି" , "cô", "ତ୍ମ" ,"û" , "ା" , "ò" , "ି" , "ú" , "ୀ" , "ê" , "ୁ" , "ë" , "ୁ" , "ì" , "ୂ" , "í" ,  "ୂ" ,"é" , "ୃ" , "ñ", "ଁ" , "õ", "ଂ" , "ü", "ଃ" , "þ", "୍" , "¨", "୍‍" ,"1" , "୧" , "2" , "୨" , "3" , "୩" ,"4" , "୪" ,"5" , "୫" ,"6" , "୬" ,"7" , "୭" ,"8" , "୮" , "9" , "୯" , "0" , "୦" , "#" , "୰" , "$" , "ଽ" , "&" , "ଌ" , "*" , "ଞ୍ଚ" , "" ,  "ଞ୍ଚ" , "î" , "୍ରୁ" , "ï" , "୍ରୂ" , "Ð" , "କ୍ଷ୍ଣ" , "Ñ" , "୍କ" ,  "Ò" , "୍ଖ" , "Ó" , "୍ଗ" , "Ô" , "୍ଚ" , "Õ" , "୍ଜ" , "Ö" , "୍ଟ" , "×" , "୍ଠ" , "Ø" , "୍ଡ" , "Ù" , "୍ଣ" , "Ú" , "୍ଥ" , "Û" , "୍ଧ" , "Ü" , "୍ନ" , "Ý" , "୍ପ" , "Þ" , "୍ଫ" , "ß" , "୍ୱ" , "<" , "ଣ୍ଟ" , "" , "ଣ୍ଟ" , "…" , "ଟ୍ଟ" , "μ" , "ମ୍ପ" , "µ" , "ମ୍ପ" , "¶" , "ମ୍ଫ" , "‰" , "ଣ୍ଣ" , "Š" , "ଣ୍ଡ" , "Œ" , "ଣ୍ଠ" , "™" , "ତ୍ମ" , "š" , "ତ୍ପ" , "›" , "ତ୍ସ" , "œ" , "ତ୍ସ୍ନ" , "Ÿ" , "ଦ୍ଧ" , "{" , "ଜ୍ଜ" , "|" , "ଜ୍ଝ" , "}" , "କ୍ର" , "¡" , "ଦ୍ଧ" , "¢" , "ଦ୍ଘ" , "¤" , "ଧ୍ୟ" ,"¦" , "ନ୍ଦ" ,"§" , "ନ୍ଧ" ,"©" , "ତ୍ତ" , "" , "ତ୍ତ" , "ª" , "ନ୍ତ୍ର" , "«" , "ନ୍ତ" , "¬" , "ଞ୍ଜ" , "ƒ" , "ଞ୍ଝ" ,"®" , "ପ୍ପ" , "¯" , "ପ୍ତ" ,"°", "ପ୍ସ" ,"±" , "ବ୍ଦ" , "²" , "ବ୍ଧ" ,"´" , "ମ୍ବ" , "¸" , "ମ୍ଭ" , " ̧" , "ମ୍ଭ", "̧" , "ମ୍ଭ", "¹" , "ମ୍ମ" ,"º" , "ଲ୍କ" ,"»" , "ଲ୍ଗ" ,"¼" , "ଶ୍ଛ" , "½" , "ଶ୍ଚ" , "¾" , "ଷ୍ଣ" , "¿" , "ଷ୍ପ" , "À" , "ଷ୍ଫ" , "Á" , "ଷ୍ଟ" , "Ã" , "ଷ୍କ" , "Ä" , "ସ୍କ" , "Å" , "ସ୍ଖ" , "Æ" , "ସ୍ପ" , "Ç" , "ସ୍ଫ" , "È" , "ସ୍ତ୍ର" , "É" , "ସ୍ତ" ,"Ê" , "ସ୍ୱ" , "Ë" , "ଳ୍କ" , "Ì" , "ଳ୍ପ" , "Í" , "ଳ୍ଫ" , "Î" , "ତ୍ଥ" , "" , "ତ୍ଥ" , "Ï" , "ଳ୍ଳ" , "@ା" , "ଆ" ,"@" , "ଅ" , "A" , "ଇ" ,"B" , "ଈ" ,"C" , "ଉ" ,"D" , "ଊ" , "E" , "ଋ" , "F" , "ୠ" , "G" , "ଏ" , "H" , "ଐ" ,"I" , "ଓ" , "J" , "ଔ" , "K" , "କ" , "L" , "ଖ" , "M" , "ଗ" ,"N" , "ଘ" , "O" , "ଙ" ,"P" , "ଚ", "Q" , "ଛ", "R" , "ଜ", "S" , "ଝ","T" , "ଞ", "U", "ଟ" ,"V", "ଠ" , "W", "ଡ" , "X", "ଢ" ,"Y", "ଣ" ,"Z" , "ତ" , "[" , "ଥ" , "\\" , "ଦ" , "]" , "ଧ" , "^", "ନ" , "~" , "ଯ" , "_" , "ପ","`" , "ଫ", "a" , "ବ", "b" , "ଭ", "c" , "ମ","d" , "ୟ" , "e" , "ର" ,"f" , "ଲ" , "g" , "ଶ" , "h" , "ଷ" , "i" , "ସ" , "j" , "ହ" , "k" , "ଳ" ,"l" , "କ୍ଷ" , "m" , "ଜ୍ଞ" , "n" , "ଦ୍ଭ" , "o" , "କ୍ଟ" , "p" , "କ୍ଟ୍ର" , "q" , "କ୍ତ" , "s" , "ଗ୍ଦ" , "t" , "ଗ୍ଧ" , "u" , "ଙ୍କ" , "v" , "ଙ୍ଖ" ,"w" , "ଙ୍ଗ" ,"x" , "ଙ୍ଘ" ,"y" , "ଚ୍ଚ" ,"z" , "ଚ୍ଛ" ," ̄", "ପ୍ତ"," ́", "ମ୍ବ","‹", "ଣ୍ଢ" , "ଏø", " ଐ", "୍ଯ" , "୍ୟ", " ̈", "୍‍", "ଅା", "ଆ") 
   var conversion_array = new Array(
     " û", " ।", // purnacheda
@@ -246,7 +253,7 @@ function akruti_to_unicode()
     document.getElementById("unicode_text").value = "Conversion in progress.." + '\n\n' + 'Conversion of ' + position2 + ' charecters out of ' + text_size + ' completed.'; 
   }                                                                                                                   
   document.getElementById("unicode_text").value = unicode_text;
-  select_and_copy()  
+  // select_and_copy()  
   function replace_symbols() {
     //substitute array_two elements in place of corresponding conversion_array elements
     // if string to be converted is non-blank then no need of any processing.
@@ -282,6 +289,7 @@ function akruti_to_unicode()
 
 //#2 Sreelipi Conversion 
 function sreelipi_to_unicode() {
+    check_input();
   var conversion_array = new Array(
     ">" , " ।" ,
     "ÿ" , "" , //blank
@@ -521,7 +529,7 @@ function sreelipi_to_unicode() {
     document.getElementById("unicode_text").value = "Conversion in progress.." + '\n\n' + 'Conversion of ' + position2 + ' charecters out of ' + text_size + ' completed.'; 
   }
   document.getElementById("unicode_text").value = processed_text;
-  select_and_copy();
+  // select_and_copy();
   function replace_symbols() {
     if (modified_substring != "") {
       for (conversion_character_index = 0;   conversion_character_index < conversion_array_length-1;    conversion_character_index = conversion_character_index + 2) {
@@ -558,6 +566,7 @@ function sreelipi_to_unicode() {
 
 //Gist to unicode conversion
 function gist_to_unicode() {
+    check_input();
   var conversion_array = new Array(
     "ÞÔ", "ÔÞ",
     "¼¼Ð" , " ।" ,
@@ -797,7 +806,7 @@ function gist_to_unicode() {
     document.getElementById("unicode_text").value = "Conversion in progress.." + '\n\n' + 'Conversion of ' + position2 + ' charecters out of ' + text_size + ' completed.'; 
   }
   document.getElementById("unicode_text").value = processed_text;
-  select_and_copy();
+  // select_and_copy();
   function replace_symbols() {
     if (modified_substring != "") {
       for (conversion_character_index = 0;   conversion_character_index < conversion_array_length-1;    conversion_character_index = conversion_character_index + 2) {
@@ -835,6 +844,7 @@ function gist_to_unicode() {
 
 //Apranta Conersion code
 function apranta_to_unicode() {
+    check_input();
   var conversion_array = new Array(
     "ê" , " ।" ,
     "ÿ" , "" , //blank
@@ -1056,7 +1066,7 @@ function apranta_to_unicode() {
     document.getElementById("unicode_text").value = "Conversion in progress.." + '\n\n' + 'Conversion of ' + position2 + ' charecters out of ' + text_size + ' completed.'; 
   }
   document.getElementById("unicode_text").value = processed_text;
-  select_and_copy();
+  // select_and_copy();
   function replace_symbols() {
     if (modified_substring != "") {
       for (conversion_character_index = 0;   conversion_character_index < conversion_array_length-1;    conversion_character_index = conversion_character_index + 2) {
@@ -1093,6 +1103,7 @@ function apranta_to_unicode() {
 
 //Sambad EML conversion code
 function sambad_eml_to_unicode() {
+    check_input();
   var conversion_array = new Array(
     "ÞÔ", "ÔÞ",
     "¼¼Ð" , " ।" ,
@@ -1345,7 +1356,7 @@ function sambad_eml_to_unicode() {
     document.getElementById("unicode_text").value = "Conversion in progress.." + '\n\n' + 'Conversion of ' + position2 + ' charecters out of ' + text_size + ' completed.'; 
   }
   document.getElementById("unicode_text").value = processed_text;
-  select_and_copy();
+  // select_and_copy();
   function replace_symbols() {
     if (modified_substring != "") {
       for (conversion_character_index = 0;   conversion_character_index < conversion_array_length-1;    conversion_character_index = conversion_character_index + 2) {
@@ -1384,10 +1395,17 @@ function sambad_eml_to_unicode() {
 }
 
 function select_and_copy() {
-  unicode_text_button
-  document.getElementById('unicode_text_button').value = "Converted and Copied";
-  //select the converted text
-  document.getElementById('unicode_text').select();
-  //copy the selected text
+  if (document.getElementById('unicode_text').value == "") {
+    alert('There is nothing to copy. Please select the conversion buttons first.')
+  } else {
+    document.getElementById('unicode_text_button').value = "Copied";
+    //select the converted text
+    document.getElementById('unicode_text').select();
+    //copy the selected text
   document.execCommand('copy');
+  }
 }
+
+// $( document ).ready(function() {
+//     $('#unicode_text').ime();
+// });

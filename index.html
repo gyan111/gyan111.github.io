@@ -99,7 +99,7 @@
 		}
 	</style>
 </head>
-<body>
+<body style="background-color:#f2f2f2">
 <p align="center" style="font-size: 18px"><strong>Odia Unicode Converter</strong></p>
 <div class="section group">
 	<div class="col span_2"></div>
@@ -111,11 +111,11 @@
 			<input class="bigbutton" onclick="apranta_to_unicode()" type="submit" id="apranta" value="Apranta" /> 
 			<input class="bigbutton" onclick="sambad_eml_to_unicode()" type="submit" id="sambad_eml" value="Sambad EML" /> 
 		</div>
-		<textarea class="input" placeholder="Enter text here..." id="input_text"></textarea>
+		<textarea class="input" placeholder="Paste your copied text and click on approprita button above.." id="input_text"></textarea>
 	</div>
 	<div class="col span_4">
 		<div align="left">
-			<input class="bigbutton" type="submit" value="Converted Unicode Text" id="unicode_text_button" style="width: 100%" />
+			<input onclick="select_and_copy()" class="bigbutton" type="submit" value="Click to select all and copy" id="unicode_text_button" style="width: 100%" />
 		</div>
 		<textarea class="input" placeholder="Convereted Text" id="unicode_text"></textarea>
 	</div>
@@ -123,9 +123,7 @@
 </div>
 <div align="center">
 	<a href="about.html" align="center">About this converter</a>
-	<p>License Under CC-BY-SA 4.0</p>
 </div>
-<script src="adalabadala.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -134,7 +132,10 @@
 
   ga('create', 'UA-73017066-1', 'auto');
   ga('send', 'pageview');
-
 </script>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/src/jquery.ime.js"></script>
+<script src="adalabadala.js"></script>
 </body>
 </html>
