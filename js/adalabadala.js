@@ -1,7 +1,8 @@
 // Using pure javascript code as it can be used as offline 
 function check_input() {
     if (document.getElementById('input_text').value == "") {
-        alert('Nothing to convert. Paste your text in the left side box first.')
+        sweetAlert("Oops...Nothing to convert!", "Paste your text in the left side box first.", "error");
+        // swal({   title: "Auto close alert!",   text: "I will close in 2 seconds.",   timer: 2000,   showConfirmButton: false });
         return false;
     }
 }
@@ -1396,7 +1397,8 @@ function sambad_eml_to_unicode() {
 
 function select_and_copy() {
   if (document.getElementById('unicode_text').value == "") {
-    alert('There is nothing to copy. Please select the conversion buttons first.')
+    // alert('There is nothing to copy. Please select the conversion buttons first.')
+    sweetAlert("Oops...There is nothing to copy!", "Please select the conversion buttons first.", "error");
   } else {
     document.getElementById('unicode_text_button').value = "Copied";
     //select the converted text
@@ -1408,4 +1410,8 @@ function select_and_copy() {
 
 // $( document ).ready(function() {
 //     $('#unicode_text').ime();
+// });
+
+// $(document).click(function() {
+//     $('#unicode_text_button').val('Click to select all and copy');
 // });
