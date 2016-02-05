@@ -1400,18 +1400,15 @@ function select_and_copy() {
     // alert('There is nothing to copy. Please select the conversion buttons first.')
     sweetAlert("Oops...There is nothing to copy!", "Please select the conversion buttons first.", "error");
   } else {
-    document.getElementById('unicode_text_button').value = "Copied";
     //select the converted text
     document.getElementById('unicode_text').select();
     //copy the selected text
-  document.execCommand('copy');
+    document.execCommand('copy');
+    document.getElementById('unicode_text_button').value = "Copied";
+    setTimeout(function(){
+      document.getElementById('unicode_text_button').value = "Click to select all and copy";
+    }, 2000);
   }
 }
 
-// $( document ).ready(function() {
-//     $('#unicode_text').ime();
-// });
-
-// $(document).click(function() {
-//     $('#unicode_text_button').val('Click to select all and copy');
-// });
+$('#unicode_text').ime();

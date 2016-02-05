@@ -4,6 +4,9 @@
 	<title>Odia Unicode Converter</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width" />
+	<meta name="author" content="Jnanaranjan Sahu" />
+	<meta name="description" content="Odia Unicode Font Converter">
+	<meta name="keywords" content="Odia Unicode Converter, Odia Font converter, Oriya,Font Converter">
 	<style type="text/css">
 		/*  SECTIONS  */
 		.section {
@@ -99,6 +102,7 @@
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="plugin/sweetalert/dist/sweetalert.css">
+	<link href="plugin/jqueryime/css/jquery.ime.css" rel="stylesheet" />
 </head>
 <body style="background-color:#f2f2f2">
 <p align="center" style="font-size: 18px"><strong>Odia Unicode Converter</strong></p>
@@ -106,17 +110,17 @@
 	<div class="col span_2"></div>
 	<div class="col span_4">
 		<div align="left">
-			<input class="bigbutton" onclick="akruti_to_unicode()" type="submit" id="akruti" value="Akruti" />
-			<input class="bigbutton" onclick="sreelipi_to_unicode()" type="submit" id="sreelipi" value="Sreelipi" />
-			<input class="bigbutton" onclick="gist_to_unicode()" type="submit" id="gist" value="GIST"/> 
-			<input class="bigbutton" onclick="apranta_to_unicode()" type="submit" id="apranta" value="Apranta" /> 
-			<input class="bigbutton" onclick="sambad_eml_to_unicode()" type="submit" id="sambad_eml" value="Sambad EML" /> 
+			<input class="bigbutton" title="Click to convert from Samaja, Suryprabha etc" onclick="akruti_to_unicode()" type="submit" id="akruti" value="Akruti" />
+			<input class="bigbutton" title="Click to convert from Odisha Express, Smbad Kalika etc." onclick="sreelipi_to_unicode()" type="submit" id="sreelipi" value="Sreelipi" />
+			<input class="bigbutton" title="Click to convert" onclick="gist_to_unicode()" type="submit" id="gist" value="GIST"/> 
+			<input class="bigbutton" title="Click to convert" onclick="apranta_to_unicode()" type="submit" id="apranta" value="Apranta" /> 
+			<input class="bigbutton" title="Click to convert" onclick="sambad_eml_to_unicode()" type="submit" id="sambad_eml" value="Sambad EML" /> 
 		</div>
 		<textarea class="input" placeholder="Paste your copied text and click on approprita button above.." id="input_text"></textarea>
 	</div>
 	<div class="col span_4">
 		<div align="left">
-			<input onclick="select_and_copy()" class="bigbutton" type="submit" value="Click to select all and copy" id="unicode_text_button" style="width: 100%" />
+			<input title="Click to select all and copy" onclick="select_and_copy()" class="bigbutton" type="submit" value="Click to select all and copy" id="unicode_text_button" style="width: 100%" />
 		</div>
 		<textarea class="input" placeholder="Convereted Text" id="unicode_text"></textarea>
 	</div>
@@ -134,10 +138,18 @@
   ga('create', 'UA-73017066-1', 'auto');
   ga('send', 'pageview');
 </script>
+<!--Jquery -->
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<!--Sweet Alert-->
+<script src="plugin/sweetalert/dist/sweetalert.min.js"></script>
+<!--Jquery ime-->
+<script src="plugin/jqueryime/libs/rangy/rangy-core.js"></script>
 <script src="plugin/jqueryime/src/jquery.ime.js"></script>
-<script src="plugin/sweetalert/dist/sweetalert.min.js"></script> 
+<script src="plugin/jqueryime/src/jquery.ime.selector.js"></script>
+<script src="plugin/jqueryime/src/jquery.ime.preferences.js"></script>
+<script src="plugin/jqueryime/src/jquery.ime.inputmethods.js"></script>
+<!--Custom Sccript -->
 <script src="js/adalabadala.js"></script>
 </body>
 </html>

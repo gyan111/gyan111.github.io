@@ -758,8 +758,8 @@
 
 	// default options
 	$.ime.defaults = {
-		imePath: '../', // Relative/Absolute path for the rules folder of jquery.ime
-		languages: [], // Languages to be used- by default all languages
+		imePath: 'plugin/jqueryime/', // Relative/Absolute path for the rules folder of jquery.ime
+		languages: ['or'], // Languages to be used- by default all languages
 		helpHandler: null // Called for each ime option in the menu
 	};
 
