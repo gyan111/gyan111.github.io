@@ -36,7 +36,7 @@
 		},
 
 		getDefaultLanguage: function () {
-			return 'en';
+			return 'or';
 		},
 
 		getPreviousLanguages: function () {
