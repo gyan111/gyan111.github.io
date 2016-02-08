@@ -1,0 +1,21 @@
+body {
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+input {
+	width: 500px;
+	margin-bottom: 20px;
+}
+
+textarea {
+	width: 500px;
+	height: 300px;
+	margin-bottom: 20px;
+}
+
+[contenteditable] {
+	border: 1px solid green;
+	height: 300px;
+	width: 500px;
+}

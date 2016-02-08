@@ -1,0 +1,5 @@
+How to open the converter.
+
+1. Open the index.html file in a browser.
+
+2. The  input tools are not working in  chrome. So use firefox if you want to use that feature.

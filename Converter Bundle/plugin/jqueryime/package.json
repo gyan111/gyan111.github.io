@@ -1,0 +1,56 @@
+{
+  "name": "jquery.ime",
+  "version": "0.1.0",
+  "description": "jQuery based internationalization library",
+  "homepage": "https://github.com/wikimedia/jquery.ime",
+  "keywords": [
+    "internationalization",
+    "localization",
+    "ime",
+    "jquery",
+    "l10n"
+  ],
+  "author": {
+    "name": "Santhosh Thottingal",
+    "email": "santhosh.thottingal@gmail.com"
+  },
+  "contributors": [
+    "Amir Aharoni <amir.aharoni@mail.huji.ac.il>",
+    "Pau Giner <pginer@wikimedia.org>",
+    "Niklas Laxstrom nlaxstrom@wikimedia.org",
+    "Srikanth Lakshmanan <srik.lak@gmail.com>"
+  ],
+  "devDependencies": {
+    "grunt-contrib-csslint": "~0.1.0",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-contrib-cssmin": "~0.4.0",
+    "grunt-contrib-qunit": "~0.2.0",
+    "grunt-contrib-concat": "~0.1.3",
+    "grunt-contrib-uglify": "~0.1.2",
+    "grunt-cli": "~0.1.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wikimedia/jquery.ime.git"
+  },
+  "bugs": {
+    "url" : "http://github.com/wikimedia/jquery.ime/issues"
+    },
+  "engine": {
+    "node": ">=0.6.x"
+  },
+  "licenses": [
+    {
+      "type": "GPL",
+      "url": "https://github.com/wikimedia/jquery.ime/blob/master/GPL-LICENSE"
+    },
+    {
+      "type": "MIT",
+      "url": "https://github.com/wikimedia/jquery.ime/blob/master/MIT-LICENSE"
+    }
+  ],
+  "scripts": {
+     "test": "grunt test --verbose"
+  }
+}
