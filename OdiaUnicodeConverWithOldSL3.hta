@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<head>
+<head>
 	<HTA:Application
 	 Border = Thick
 	 BorderStyle = Complex
@@ -13,8 +13,7 @@
 	<title>Odia Unicode Converter</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width" />
-	<meta name="version" content="1.0" />
-	<meta name="author" content="Jnanaranjan Sahu" />
+	<meta name="version" content="1.1" />
 	<meta name="description" content="Odia Unicode Font Converter">
 	<style type="text/css">
 		/*  SECTIONS  */
@@ -85,13 +84,13 @@
 		}
 		/* Setting width for particular buttons//responive issue*/
 		#akruti, #gist {
-			width: 16%;		
+			width: 15%;		
 		}
 		#sreelipi, #apranta {
-			width: 18.5%;		
+			width: 17%;		
 		}
 		#sambad_eml {
-			width: 27.3%;		
+			width: 15%;		
 		}
 
 		/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
@@ -122,6 +121,7 @@
 		{
 		  check_input();
 		  var conversion_array = new Array(
+		    "ûû", "।।",
 		    " û", " ।", // purnacheda
 		    "ö" , " ।" , // purnacheda
 		    "÷÷÷", "", //
@@ -148,6 +148,10 @@
 		    "]ô" , "ଧି" , // dhi
 		    "Lô" , "ଖି" , // khi
 		    "cô", "ତ୍ମ" , // tma
+		    "_ô" , "ତ୍ପ" , // tpa
+		    "Kô" , "ତ୍କ" , // tpa
+		    "^ô" , "ତ୍ନ" , // tna
+		    "iô" , "ତ୍ସ" , // tsa
 
 		    "û" , "ା" , // aa kara
 		    "ò" , "ି" , // i kara
@@ -157,9 +161,12 @@
 		    "ì" , "ୂ" , // dirgha i kara
 		    "í" ,  "ୂ" , // dirgha u kara
 		    "é" , "ୃ" , // ru kara
+		    "ୁ୍ୟ" , "୍ୟୁ" ,//yya phalaa + ukaar
+		    "ୂ୍ୟ" , "୍ୟୂ" ,//yya phalaa + uukaar
 
 		    "ñ", "ଁ" , // chandrabindu
 		    "õ", "ଂ" , // anuswara
+		    " ü", "ଃ" , // bisarga
 		    "ü", "ଃ" , // bisarga
 		    "þ", "୍" , //halanta
 		    "¨", "୍‍" , // halanta with zero width non joiner
@@ -213,8 +220,8 @@
 		    "š" , "ତ୍ପ" , // tp
 		    "›" , "ତ୍ସ" , // ts
 		    "œ" , "ତ୍ସ୍ନ" , // t-s-n
-		    "Ÿ" , "ଦ୍ଧ" , // d-dh
-
+		    "Ÿ" , "ଦ୍ଦ" , // d-d
+		    "¡" , "ଦ୍ଧ" , // d-dh
 
 		    "{" , "ଜ୍ଜ" , // jj
 		    "|" , "ଜ୍ଝ" , // j-jh
@@ -334,11 +341,15 @@
 		    " ̄", "ପ୍ତ",
 		    " ́", "ମ୍ବ",
 		    "‹", "ଣ୍ଢ" , // ndha
+		    "\u008F" , "ତ୍ତ",
+		    "\u0090" , "ତ୍ତ୍ୱ",
 		    "ଏø", " ଐ", // ai
 		    "୍ଯ" , "୍ୟ", // ja phala
 		    " ̈", "୍‍", // halanta with ZWJ
+		    "‚" , "ଞ୍ଛ" ,
+		    "ÿ" , "଼" ,
 		    "ଅା", "ଆ"  // aa
-		 );
+		  );
 
 		  var conversion_array_length = conversion_array.length;
 		  var input_string = document.getElementById("input_text").value;  
@@ -379,20 +390,29 @@
 		        } 
 		      }
 		      // following statements for adjusting position of e, ai, o and au maatraas.
-		      input_string = input_string.replace(/([ù])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯୟରଲବୱଶଷସହକ୍ଷଡ଼ଳ])/g , "$2$1");
-		      //ଟଠଡଡ଼ଢଢ଼ଣତଥ
-		      input_string = input_string.replace(/([ù])([୍])([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥନପଫବଭମୟରଲବୱଶଷସହକ୍ଷଡ଼ଳ])/g , "$2$3$1");
-		      input_string = input_string.replace(/ùø/g  ,  "ୌ");
-		      input_string = input_string.replace(/ùା/g  ,  "ୋ");
-		      input_string = input_string.replace(/ù÷/g  ,  "ୈ");
-		      input_string = input_string.replace(/ù/g  ,  "େ");
-		      //following three statement for adjusting position of reph ie, half r .
-		      input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([ାିୀୁୂୃେୈୋୌଂଁ]*)à/g , "ð$1$2");
-		      input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([ାିୀୁୂୃେୈୋୌଂଁ]*)ð/g , "ð$1$2");
-		      input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([୍])à/g , "ð$1$2");
-		      input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([୍])ð/g , "ð$1$2");
-		      input_string = input_string.replace(/ð/g , "ର୍");
-		      input_string = input_string.replace(/([ଂଁ])([ାିୀୁୂୃେୈୋୌ])/g , "$2$1");
+      			input_string = input_string.replace(/([ù])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯୟରଲବୱଶଷସହକ୍ଷଡ଼ଳଦ୍ଦଦ୍ଦ])/g , "$2$1");
+      			//ଟଠଡଡ଼ଢଢ଼ଣତଥ
+      			input_string = input_string.replace(/([ù])([୍])([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥନପଫବଭମୟରଲବୱଶଷସହକ୍ଷଡ଼ଳଦ୍ଦଦ୍ଦ])/g , "$2$3$1");
+      			input_string = input_string.replace(/ùø/g  ,  "ୌ");
+      			input_string = input_string.replace(/ùା/g  ,  "ୋ");
+      			input_string = input_string.replace(/ù÷/g  ,  "ୈ");
+      			input_string = input_string.replace(/ù/g  ,  "େ");
+      			//following three statement for adjusting position of reph ie, half r .
+      			input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([ାିୀୁୂୃେୈୋୌଂଁ]*)à/g , "ð$1$2");
+      			input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([ାିୀୁୂୃେୈୋୌଂଁ]*)ð/g , "ð$1$2");
+      			input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([୍])à/g , "ð$1$2");
+      			input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([୍])ð/g , "ð$1$2");
+      			input_string = input_string.replace(/ð/g , "ର୍");
+      			// ys phala like bidyut issue
+      			input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([ାିୀୁୂୃେୈୋୌଂଁ])([୍])([ୟ])/g , "$1$3$4$2");
+      			//d+d
+      			input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([େ])([୍])([ର])([୍])([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])/g , "$4$3$1$5$6$2");
+				// patni
+      			input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([ô])/g , "$2$1");
+      			//ra phala 
+      			input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([ାିୀୁୂୃେୈୋୌଂଁ])([୍])([ର])/g , "$1$3$4$2");
+
+      			input_string = input_string.replace(/([ଂଁ])([ାିୀୁୂୃେୈୋୌ])/g , "$2$1");
 		    } // end of IF  statement  meant to  suppress processing of  blank  string.
 
 		  } // end of the function  replace_symbols
@@ -403,8 +423,11 @@
 		function sreelipi_to_unicode() {
 		    check_input();
 		  var conversion_array = new Array(
+		    ";ÿ" , "ନ୍ତ" ,
+		    "H´" , "ୱ" ,
 		    ">" , " ।" ,
 		    "ÿ" , "" , //blank
+		    "&" , "" , //& represents two marks combining in SL. Not necessary in Unicode (mark to mark position GPOS)
 		    "􀃛" , "" ,
 		    "ç§" , "§ç" ,
 		    "􀁞" , "{" ,
@@ -416,6 +439,8 @@
 		    "¿â" , "â¿" ,
 		    "􀀃" , " " ,
 		    "  " , " " ,
+		    "\–ö" , "ର୍ଦ୍ଧ୍ୱ" ,
+		    "–" , "ଦ୍ଧ୍ୱ" ,
 
 		    "1" , "୧" ,
 		    "2" , "୨" ,
@@ -429,6 +454,7 @@
 		    "0" , "୦" ,
 
 		    "þ#" , "ତ୍ମ" ,
+		    "œ#" , "ତ୍ନ" ,
 		    "Œ", "ତ୍ପ",
 		    "”", "ଦ୍ଦ",
 
@@ -461,6 +487,7 @@
 		    "Q" , "ଖ" , // kha
 		    "S" , "ଗ" , // ga
 		    "W" , "ଘ" , // gha
+		    "Y" , "ଙ" , // nga
 		    "`" , "ଚ" , // ca
 		    "a" , "ଚ୍ଚ" , // cc (dwitiya)
 		    "d" , "ଛ" , // cha
@@ -541,9 +568,9 @@
 		    "Ÿ" , "ନ୍ନ" , // nna
 		    "•" , "ଦ୍ଧ" , // ddha
 		    "ˆ" , "ତ୍ତ" , // tta
-		    ";" , "ନ୍ତ" , // nta
+		    //";" , "ନ୍ତ" , // nta (seems doubtful in SL 4.0 documents)
 		    "􀁣" , "ଣ୍ଡ" , // NDa
-		    " ß" , "ୟ" , // ya
+		    //" ß" , "ୟ" , // ya
 		    "ß" , "ୟ" , // ya
 		    "Ö" , "ସ୍ତ" , // sta
 		    "N" , "କ୍ତ" , // kta
@@ -556,6 +583,7 @@
 		    "Z" , "ଙ୍କ" ,
 		    "\\" , "ଙ୍ଖ" , // nkha
 		    "\è" , "ଙ୍ଗ" , // nga
+		    "^" , "ଙ୍ଘ" , //ngha
 		    "q" , "ଞ୍ଜ" , // nja
 
 		    "+" , "ଣ୍ଟ" , // NTa
@@ -567,7 +595,7 @@
 		    "Ø" , "ସ୍ପ" , // spa
 		    "Ù" , "ସ୍ପ" , // spa
 
-		    " æ" , "ା" , // aa kara
+		    //" æ" , "ା" , // aa kara
 		    "æ" , "ା" , // aa kara
 		    "􀃂" , "ା" , // aa kara
 		    " ା", " ।", // purnached
@@ -588,7 +616,7 @@
 		    "ô" , "ଁ" , // Anuswara
 		    "􀁥" , "ଃ" , // bisarga
 		    "…" , "ଃ" , // bisarga
-		    "ú" , "୍" , // halanta
+		    "ú" , "୍‌" , // halanta with ZWNJ
 
 		    "ó" , "ଂ" , // chandrabindu
 		    "]" , "ିଁ" , // i kara
@@ -600,13 +628,20 @@
 		    '̄',"ବ",
 		    ' ́',"୍ୱ",
 		    '́',"୍ୱ",
-		     '̈','ପ',
+		    '̈','ପ',
+
+		    "\"\"" , "“" ,//left and right dbl and single quotes
+		    "\'\'" , "”" ,
+		    "\"" , "‘" ,
+		    "\'" , "’" ,
+
 
 		    "A" , "ଅ" , // a
 		    "􀀤" , "ଅ" , // a
 		    "ଅା" , "ଆ" , // aa
 		    "B" , "ଇ" , // i
 		    "􀀥" , "ଇ" , // i
+		    "C" , "ଈ" , // ii
 		    "D" , "ଉ" , // u
 		    "􀀧" , "ଉ" , // u
 		    "E" , "ଊ" , // U
@@ -616,8 +651,11 @@
 		    "􀀪" , "ଐ" , // ai
 		    "H" , "ଓ" , // o
 		    "I" , "ଔ" , // au
-		    "K" , "ଔ"     // au
-		 );
+		    "K" , "ଔ" , // au
+		    "=" , "ଣ୍ଠ" , // nttha
+		    "—" , "ଦ୍ଭ" , // dbha
+		    "#" , "ି"    
+		  );
 
 		  var conversion_array_length = conversion_array.length;
 		  var modified_substring = document.getElementById("input_text").value;  
@@ -1215,7 +1253,7 @@
 
 		//Sambad EML conversion code
 		function sambad_eml_to_unicode() {
-		    check_input();
+		  check_input();
 		  var conversion_array = new Array(
 		    "ÞÔ", "ÔÞ",
 		    "¼¼Ð" , " ।" ,
@@ -1505,6 +1543,348 @@
 		    } // end of IF  statement  meant to  suppress processing of  blank  string.
 		  } // end of the function  replace_symbols
 		}
+		function sreelipi3_to_unicode() {
+			check_input();
+			var array_one = new Array(
+			"b" , "" ,
+			"&" , "" , //mark to mark positioning
+			"€¾" , "ଆ" ,
+			"€" , "ଅ" ,
+			"\u0081" , "ଇ" ,
+			"‚" , "ଈ" ,
+			"ƒ" , "ଉ" ,
+			"„" , "ଊ" ,
+			"…" , "ଋ" ,
+			"\u005F" , "ଌ" , //llu or lu?
+			"†" , "ଏ" ,
+			"‡" , "ଐ" ,
+			"ˆ" , "ଓ" ,
+			//"\u00E2" , "ଔ" ,
+			"ç" , "କ" ,
+			"Ö" , "ଖ" ,
+			"B" , "ଗ" ,
+			"Ó" , "ଘ" ,
+			"×" , "ଙ" ,
+			"O" , "ଚ" ,
+			"^" , "ଛ" ,
+			"¯" , "ଜ" ,
+			"Ż" , "ଜ" , //n
+			"û" , "ଝ" ,
+			"K" , "ଞ" ,
+			"¦" , "ଟ" ,
+			"z" , "ଠ" ,
+			"w" , "ଡ" ,
+			"n" , "ଢ" ,
+			"È" , "ଣ" ,
+			"Č" , "ଣ" , //n
+			"Ú" , "ତ" ,
+			"W" , "ଥ" ,
+			"É" , "ଦ" ,
+			"ã" , "ଧ" ,
+			"ă" , "ଧ" , //n
+			"½" , "ନ" ,
+			"˝" , "ନ" , //n
+			"é" , "ପ" ,
+			"´" , "ଫ" ,
+			"ô" , "ବ" ,
+			"j" , "ବ" ,
+			"u" , "ଭ" ,
+			"»" , "ମ" ,
+			"·" , "ଯ" ,
+			"µ" , "ର" ,
+			"Î" , "ଲ" ,
+			"k" , "ଳ" ,
+			"ß" , "ଶ" ,
+			"â" , "ଷ" ,
+			"s" , "ସ" ,
+			"¸" , "ହ" ,
+			"R" , "ଡ଼" ,
+			"ù" , "ଢ଼" ,
+			"S" , "ୟ" ,
+			//"®" , "ୠ" ,
+			"i" , "ଚ଼" ,
+
+			"¾" , "ା" ,
+			"ľ" , "ା" , //n
+			"¼" , "ି" ,
+			"Õ" , "ି" ,
+			"Ő" , "ି" , //n lower i kar
+			"Ľ" , "ି" , //n
+			"Ø" , "ିଁ" ,
+			"m" , "ୀ" ,
+			"Ï" , "ୁ" ,
+			"Ď" , "ୁ" , //n
+			"\uE98E" , "ୁ" , //stacked below another mark
+			"Ù" , "ୂ" ,
+			"Ů" , "ୂ" , //n
+			"\uE98F" , "ୂ" , //stacked below another mark
+			"§" , "ୃ" ,
+			//"ø" , "େ" ,
+			//"Û" , "ୈ" ,
+			//"\uE83F" , "ୋ" ,
+			//"ý" , "ୌ" ,
+			"o" , "୍‌" , //with ZWNJ
+			"\uE835" , "଼" ,
+			//"¿" , "ର୍" ,
+			"þ" , "୍ର" ,
+			"ţ" , "୍ର" , //n
+			"c" , "୍ରୁ" ,
+			"\uE8EE" , "୍ରୂ" ,
+			"\uE8F0" , "ିଁ" ,
+			"Š" , "୍ୟ" ,
+			"÷" , "ଁ" ,
+			"ö" , "ଂ" ,
+			"|" , "ଃ" ,
+
+			"ü" , "କ୍କ" ,
+			"\u0090" , "କ୍ତ" ,
+			"M" , "କ୍ଷ" ,
+			"\u00A0" , "କ୍ଷ୍ଣ" ,
+			"Ò" , "କ୍ସ" ,
+			//"å" , "ଗ୍ଦ" ,
+			"ç" , "ଗ୍ଧ" ,
+			"š" , "ଙ୍କ" ,
+			"C" , "ଙ୍କ୍ତ" ,
+			//"¬" , "ଙ୍କ୍ଷ" ,
+			"›" , "ଙ୍ଖ" ,
+			"œ" , "ଙ୍ଗ" ,
+			"ś" , "ଙ୍ଗ" , //n
+			"\u009D" , "ଙ୍ଘ" ,
+			"Ž" , "ଚ୍ଚ" ,
+			"\u008F" , "ଚ୍ଛ" ,
+			"ã" , "ଚ୍ଞ" ,
+			"ž" , "ଜ୍ଜ" ,
+			"≠" , "ଜ୍ଜ୍ୱ" ,
+			"Ú" , "ଜ୍ଝ" ,
+			"ë" , "ଜ୍ଞ" ,
+			"T" , "ଞ୍ଚ" ,
+			"¡" , "ଞ୍ଛ" ,
+			"á" , "ଞ୍ଜ" ,
+			"\uF8FF" , "ଞ୍ଝ" ,
+			"‰" , "ଟ୍ଟ" ,
+			"©" , "ଡ୍ଟ" ,
+			"«" , "ଡ୍ଡ" ,
+			"í" , "ଣ୍ଠ" ,
+			"p" , "ଣ୍ଡ" ,
+			"ƒ" , "ଣ୍ଢ" ,
+			"\u007F" , "ଣ୍ଢ" ,
+			"¬" , "ଣ୍ଣ" ,
+			"±" , "ତ୍କ" ,
+			"v" , "ତ୍ତ" ,
+			"å" , "ତ୍ତ୍ୱ" ,
+			"r" , "ତ୍ଥ" ,
+			"õ" , "ତ୍ନ" ,
+			"[" , "ତ୍ପ" ,
+			"Í" , "ତ୍ମ" ,
+			"q" , "ତ୍ମ୍ୟ" ,
+			"U" , "ତ୍ସ" ,
+			"}" , "ତ୍ସ୍ନ" ,
+			"˙" , "ଦ୍ଘ" ,
+			"ï" , "ଦ୍ଦ" ,
+			"{" , "ଦ୍ଧ" ,
+			"à" , "ଦ୍ଧ୍ୱ" ,
+			"º" , "ଦ୍ଭ" ,
+			"™" , "ଦ୍ୟ" ,
+			"Y" , "ଧ୍ୟ" ,
+			"Ã" , "ନ୍ତ" ,
+			"Ă" , "ନ୍ତ" , //n
+			"À" , "ନ୍ତ୍ର" ,
+			"ﬁ" , "ନ୍ତ୍ୱ" ,
+			"Ñ" , "ନ୍ଥ" ,
+			"Ń" , "ନ୍ଥ" , //n
+			"¤" , "ନ୍ଦ" ,
+			"æ" , "ନ୍ଦ୍ୱ" ,
+			"Z" , "ନ୍ଧ" ,
+			"£" , "ନ୍ଧ୍ୱ" ,
+			"d" , "ନ୍ନ" ,
+			"ñ" , "ପ୍ତ" ,
+			"Ã" , "ପ୍ପ" ,
+			"Q" , "ପ୍ସ" ,
+			"@" , "ବ୍ଜ" ,
+			"Ð" , "ବ୍ଦ" ,
+			"t" , "ବ୍ଧ" ,
+			"~" , "ମ୍ପ" ,
+			"y" , "ମ୍ଫ" ,
+			"a" , "ମ୍ବ" ,
+			"g" , "ମ୍ଭ" ,
+			"l" , "ମ୍ମ" ,
+			//"´" , "ଳ୍କ" ,
+			"e" , "ଳ୍ଭ" ,
+			"∂" , "ଳ୍ଳ" ,
+			"Å" , "ଳ୍ପ" ,
+			"X" , "ଳ୍ଫ" ,
+			"≥" , "ଲ୍କ" ,
+			"H" , "ଲ୍ଗ" ,
+			"Æ" , "ଶ୍ଚ" ,
+			"`" , "ଶ୍ଛ" ,
+			"¢" , "ଶ୍ଟ" ,
+			"ó" , "ଷ୍କ" ,
+			"V" , "ଷ୍ଟ" ,
+			"Ü" , "ଷ୍ଠ" ,
+			"h" , "ଷ୍ଣ" ,
+			"Ë" , "ଷ୍ପ" ,
+			"¸" , "ଷ୍ଫ" ,
+			"Ý" , "ସ୍କ" ,
+			"L" , "ସ୍ଖ" ,
+			"®" , "ସ୍ତ" ,
+			"I" , "ସ୍ତ୍ର" ,
+			"A" , "ସ୍ଥ" ,
+			"°" , "ସ୍ପ" ,
+			"P" , "ସ୍ଫ" ,
+
+			">" , "।" ,
+
+			//"" , "୍କ" ,
+			//"" , "୍ଖ" ,
+			//"" , "୍ଗ" ,
+			//"" , "୍ଘ" ,
+			//"" , "୍ଙ" ,
+			//"" , "୍ଚ" ,
+			//"" , "୍ଛ" ,
+			//"" , "୍ଜ" ,
+			//"" , "୍ଝ" ,
+			"\"" , "୍ଟ" ,
+			//"" , "୍ଠ" ,
+			//"" , "୍ଡ" ,
+			//"" , "୍ଢ" ,
+			//"" , "୍ଣ" ,
+			//"" , "୍ତ" ,
+			//"" , "୍ଥ" ,
+			//"" , "୍ଦ" ,
+			//"" , "୍ଧ" ,
+			"¥" , "୍ନ" ,
+			//"" , "୍ପ" ,
+			//"" , "୍ଫ" ,
+			"x" , "୍ୱ" ,
+			//"" , "୍ବ" ,
+			//"" , "୍ଭ" ,
+			"<" , "୍ମ" ,
+			//"" , "୍ଯ" ,
+			"î" , "୍ଲ" ,
+			"G" , "୍ଳ" ,
+			//"" , "୍ବ" ,
+			//"" , "୍ଶ" ,
+			//"" , "୍ଷ" ,
+			"J" , "୍ସ" ,
+			//"" , "୍ହ" ,
+
+			"ż" , "¿" , //n reph
+			"ř" , "ø" , //n e kar
+
+
+			"0" , "୦" ,
+			"1" , "୧" ,
+			"2" , "୨" ,
+			"3" , "୩" ,
+			"4" , "୪" ,
+			"5" , "୫" ,
+			"6" , "୬" ,
+			"7" , "୭" ,
+			"8" , "୮" ,
+			"9" , "୯" ) 
+
+			//**********************************************
+
+			    var array_one_length = array_one.length ;
+
+			    var modified_substring = document.getElementById("input_text").value  ;  
+			  
+			document.getElementById("unicode_text").value = "Conversion in progress.."  ;  
+
+			//****************************************************
+			//  Break the long text into small bunches of chunk_size  characters each.
+			//****************************************************
+			    var text_size = modified_substring.length ;
+
+			    var processed_text = '' ;  //blank
+
+			    var cond1 = 0 ;  var cond2 = 0 ;  var chale_chalo = 1 ;
+			 
+			    var chunk_size = 6000; // this charecter long text will be processed in one go.
+
+			    while ( chale_chalo == 1 ) 
+			    {
+			     cond1 = cond2 ;
+
+			     if ( cond2 < ( text_size - chunk_size ) )  
+			     { 
+			      cond2 +=  chunk_size ;
+			//      while (document.getElementById("legacy_text").value.charAt ( cond2 ) != ' ') {cond2--;} 
+			//This was making problem if there is no 'space' in the whole document.
+			     } 
+			     else  { cond2 = text_size  ;  chale_chalo = 0 }
+
+			  var modified_substring = document.getElementById("input_text").value.substring ( cond1, cond2 )  ;
+
+			  Replace_Symbols( ) ;
+
+			  var processed_text = processed_text + modified_substring ;
+			    
+			document.getElementById("unicode_text").value = "Conversion in progress.." + '\n\n' + 'Conversion of ' + cond2 + ' charecters out of ' + text_size + ' completed.' ; 
+
+			    }
+			  
+			document.getElementById("unicode_text").value = processed_text  ;  
+
+
+			// --------------------------------------------------
+
+
+			function Replace_Symbols( )
+
+			{
+
+			//substitute array_two elements in place of corresponding array_one elements
+
+			if ( modified_substring != "" )  // if stringto be converted is non-blank then no need of any processing.
+			{
+			for ( input_symbol_idx = 0;   input_symbol_idx < array_one_length-1;    input_symbol_idx = input_symbol_idx + 2 )
+
+			{ 
+			//******************************************************
+			idx = 0  ;  // index of the symbol being searched for replacement
+
+			while (idx != -1 ) //while-00
+			{
+
+			modified_substring = modified_substring.replace( array_one[ input_symbol_idx ] , array_one[input_symbol_idx+1] )
+			idx = modified_substring.indexOf( array_one[input_symbol_idx] )
+
+			} // end of while-00 loop
+
+			} // end of for loop
+
+
+			// following statements for adjusting postion of e, ai, o and au maatraas.
+			modified_substring = modified_substring.replace( /([ø])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳବଶଷସହକ୍ଷଜ୍ଞୟୱ])/g , "$2$1" ) ;
+			modified_substring = modified_substring.replace( /([ø])([୍])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳବଶଷସହକ୍ଷଜ୍ଞୟୱ])/g , "$2$3$1" ) ;
+			modified_substring = modified_substring.replace( /øý/g  ,  "ୌ" ) ;
+			modified_substring = modified_substring.replace( /øÛ/g  ,  "ୈ" ) ;
+			modified_substring = modified_substring.replace( /øା/g  ,  "ୋ" ) ;
+			modified_substring = modified_substring.replace( /ø/g   ,  "େ" ) ;
+			modified_substring = modified_substring.replace( /([ାୁୂେୋୈୌ])(୍ୱ)/g , "$2$1" ) ;
+			modified_substring = modified_substring.replace( /([ାୁୂେୋୈୌ])(୍ୟ)/g , "$2$1" ) ;
+			modified_substring = modified_substring.replace( /([ାିୀୁୂେୋୈୌ])(୍ର)/g , "$2$1" ) ;
+
+
+			//following three statement for adjusting position of reph ie, half r .
+			modified_substring = modified_substring.replace( /([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟୱ])([ାିୀୁୂୃେୈୋୌଂଁ]*)([¿])/g , "$3$1$2" ) ;
+			modified_substring = modified_substring.replace( /([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟୱ])([୍])([¿])/g , "$3$1$2" ) ;
+			modified_substring = modified_substring.replace( /¿/g , "ର୍" ) ;
+
+			modified_substring = modified_substring.replace( /([ଂଁ])([ାିୀୁୂୃେୈୋୌ])/g , "$2$1" ) ;
+
+			/*//following three statement for adjusting position of reph and i .
+			modified_substring = modified_substring.replace( /([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟୱ])([ାିୀୁୂୃେୈୋୌଂଁ]*)([\uE8F1])/g , "$3$1$2ି" ) ;
+			modified_substring = modified_substring.replace( /([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟୱ])([୍])([\uE8F1])/g , "$3$1$2" ) ;
+			modified_substring = modified_substring.replace( /\uE8F1/g , "ର୍" ) ; */
+
+
+			} // end of IF  statement  meant to  supress processing of  blank  string.
+
+			} // end of the function  Replace_Symbols
+
+		} // end of convert_to_unicode function
 
 		function select_and_copy() {
 		  if (document.getElementById('unicode_text').value == "") {
@@ -1530,12 +1910,13 @@
 	<div class="col span_4">
 		<div align="left">
 			<input class="bigbutton" title="Click to convert from Samaja, Suryprabha etc" onclick="akruti_to_unicode()" type="submit" id="akruti" value="Akruti" />
+			<input class="bigbutton" title="Click to convert from Odisha Express, Smbad Kalika etc." onclick="sreelipi3_to_unicode()" type="submit" id="sreelipi" value="Sreelipi3" />
 			<input class="bigbutton" title="Click to convert from Odisha Express, Smbad Kalika etc." onclick="sreelipi_to_unicode()" type="submit" id="sreelipi" value="Sreelipi" />
 			<input class="bigbutton" title="Click to convert" onclick="gist_to_unicode()" type="submit" id="gist" value="GIST"/> 
 			<input class="bigbutton" title="Click to convert" onclick="apranta_to_unicode()" type="submit" id="apranta" value="Apranta" /> 
 			<input class="bigbutton" title="Click to convert" onclick="sambad_eml_to_unicode()" type="submit" id="sambad_eml" value="Sambad EML" /> 
 		</div>
-		<textarea class="input" placeholder="Paste your copied text and click on approprita button above.." id="input_text"></textarea>
+		<textarea class="input" placeholder="Paste your copied text and click on appropriate button above.." id="input_text"></textarea>
 	</div>
 	<div class="col span_4">
 		<div align="left">
@@ -1550,13 +1931,8 @@
     <p>License Under CC-BY-SA 4.0. Feel free to copy, modify, distribute and improve.</p>
     <p>The script is provided "as is" no warranty of any kind.<p> 
     <p>
-      Contact me for suggestions and improvements: 
-      <a href="https://www.facebook.com/gyana111" align="center">Facebook</a>,
-      <a href="https://www.linkedin.com/in/gyana111" align="center">Linkedin</a>,
-      <a href="https://meta.wikimedia.org/wiki/User:Jnanaranjan_sahu" align="center">Jnanaranjan Sahu</a>
-    </p>
-    <p>
-    	<a href="http://gyan111.github.io">Online version with more features</a><br>
+    	<span>Version 1.1</span><br> 
+    	<a href="http://gyan111.github.io">Online version with more features | Contact</a><br>
     </p>
   </div>
 </body>

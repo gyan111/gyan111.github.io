@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<HTA:Application
+	 Border = Thick
+	 BorderStyle = Complex
+	 ShowInTaskBar = Yes
+	 MaximizeButton = Yes
+	 MinimizeButton = Yes
+	 sysmenu="Yes"
+	 windowstate="maximize"
+	>
 	<title>Odia Unicode Converter</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width" />
@@ -112,7 +121,6 @@
 		{
 		  check_input();
 		  var conversion_array = new Array(
-		    "ûû", "।।",
 		    " û", " ।", // purnacheda
 		    "ö" , " ।" , // purnacheda
 		    "÷÷÷", "", //
@@ -139,10 +147,6 @@
 		    "]ô" , "ଧି" , // dhi
 		    "Lô" , "ଖି" , // khi
 		    "cô", "ତ୍ମ" , // tma
-		    "_ô" , "ତ୍ପ" , // tpa
-		    "Kô" , "ତ୍କ" , // tpa
-		    "^ô" , "ତ୍ନ" , // tna
-		    "iô" , "ତ୍ସ" , // tsa
 
 		    "û" , "ା" , // aa kara
 		    "ò" , "ି" , // i kara
@@ -152,12 +156,9 @@
 		    "ì" , "ୂ" , // dirgha i kara
 		    "í" ,  "ୂ" , // dirgha u kara
 		    "é" , "ୃ" , // ru kara
-		    "ୁ୍ୟ" , "୍ୟୁ" ,//yya phalaa + ukaar
-		    "ୂ୍ୟ" , "୍ୟୂ" ,//yya phalaa + uukaar
 
 		    "ñ", "ଁ" , // chandrabindu
 		    "õ", "ଂ" , // anuswara
-		    " ü", "ଃ" , // bisarga
 		    "ü", "ଃ" , // bisarga
 		    "þ", "୍" , //halanta
 		    "¨", "୍‍" , // halanta with zero width non joiner
@@ -212,7 +213,8 @@
 		    "›" , "ତ୍ସ" , // ts
 		    "œ" , "ତ୍ସ୍ନ" , // t-s-n
 		    "Ÿ" , "ଦ୍ଦ" , // d-d
-		    "¡" , "ଦ୍ଧ" , // d-dh
+    		"¡" , "ଦ୍ଧ" , // d-dh
+
 
 		    "{" , "ଜ୍ଜ" , // jj
 		    "|" , "ଜ୍ଝ" , // j-jh
@@ -332,15 +334,11 @@
 		    " ̄", "ପ୍ତ",
 		    " ́", "ମ୍ବ",
 		    "‹", "ଣ୍ଢ" , // ndha
-		    "\u008F" , "ତ୍ତ",
-		    "\u0090" , "ତ୍ତ୍ୱ",
 		    "ଏø", " ଐ", // ai
 		    "୍ଯ" , "୍ୟ", // ja phala
 		    " ̈", "୍‍", // halanta with ZWJ
-		    "‚" , "ଞ୍ଛ" ,
-		    "ÿ" , "଼" ,
 		    "ଅା", "ଆ"  // aa
-		  );
+		 );
 
 		  var conversion_array_length = conversion_array.length;
 		  var input_string = document.getElementById("input_text").value;  
@@ -414,11 +412,8 @@
 		function sreelipi_to_unicode() {
 		    check_input();
 		  var conversion_array = new Array(
-		    ";ÿ" , "ନ୍ତ" ,
-		    "H´" , "ୱ" ,
 		    ">" , " ।" ,
 		    "ÿ" , "" , //blank
-		    "&" , "" , //& represents two marks combining in SL. Not necessary in Unicode (mark to mark position GPOS)
 		    "􀃛" , "" ,
 		    "ç§" , "§ç" ,
 		    "􀁞" , "{" ,
@@ -430,8 +425,6 @@
 		    "¿â" , "â¿" ,
 		    "􀀃" , " " ,
 		    "  " , " " ,
-		    "\–ö" , "ର୍ଦ୍ଧ୍ୱ" ,
-		    "–" , "ଦ୍ଧ୍ୱ" ,
 
 		    "1" , "୧" ,
 		    "2" , "୨" ,
@@ -445,7 +438,6 @@
 		    "0" , "୦" ,
 
 		    "þ#" , "ତ୍ମ" ,
-		    "œ#" , "ତ୍ନ" ,
 		    "Œ", "ତ୍ପ",
 		    "”", "ଦ୍ଦ",
 
@@ -478,7 +470,6 @@
 		    "Q" , "ଖ" , // kha
 		    "S" , "ଗ" , // ga
 		    "W" , "ଘ" , // gha
-		    "Y" , "ଙ" , // nga
 		    "`" , "ଚ" , // ca
 		    "a" , "ଚ୍ଚ" , // cc (dwitiya)
 		    "d" , "ଛ" , // cha
@@ -559,9 +550,9 @@
 		    "Ÿ" , "ନ୍ନ" , // nna
 		    "•" , "ଦ୍ଧ" , // ddha
 		    "ˆ" , "ତ୍ତ" , // tta
-		    //";" , "ନ୍ତ" , // nta (seems doubtful in SL 4.0 documents)
+		    ";" , "ନ୍ତ" , // nta
 		    "􀁣" , "ଣ୍ଡ" , // NDa
-		    //" ß" , "ୟ" , // ya
+		    " ß" , "ୟ" , // ya
 		    "ß" , "ୟ" , // ya
 		    "Ö" , "ସ୍ତ" , // sta
 		    "N" , "କ୍ତ" , // kta
@@ -574,7 +565,6 @@
 		    "Z" , "ଙ୍କ" ,
 		    "\\" , "ଙ୍ଖ" , // nkha
 		    "\è" , "ଙ୍ଗ" , // nga
-		    "^" , "ଙ୍ଘ" , //ngha
 		    "q" , "ଞ୍ଜ" , // nja
 
 		    "+" , "ଣ୍ଟ" , // NTa
@@ -586,7 +576,7 @@
 		    "Ø" , "ସ୍ପ" , // spa
 		    "Ù" , "ସ୍ପ" , // spa
 
-		    //" æ" , "ା" , // aa kara
+		    " æ" , "ା" , // aa kara
 		    "æ" , "ା" , // aa kara
 		    "􀃂" , "ା" , // aa kara
 		    " ା", " ।", // purnached
@@ -607,7 +597,7 @@
 		    "ô" , "ଁ" , // Anuswara
 		    "􀁥" , "ଃ" , // bisarga
 		    "…" , "ଃ" , // bisarga
-		    "ú" , "୍‌" , // halanta with ZWNJ
+		    "ú" , "୍" , // halanta
 
 		    "ó" , "ଂ" , // chandrabindu
 		    "]" , "ିଁ" , // i kara
@@ -619,20 +609,13 @@
 		    '̄',"ବ",
 		    ' ́',"୍ୱ",
 		    '́',"୍ୱ",
-		    '̈','ପ',
-
-		    "\"\"" , "“" ,//left and right dbl and single quotes
-		    "\'\'" , "”" ,
-		    "\"" , "‘" ,
-		    "\'" , "’" ,
-
+		     '̈','ପ',
 
 		    "A" , "ଅ" , // a
 		    "􀀤" , "ଅ" , // a
 		    "ଅା" , "ଆ" , // aa
 		    "B" , "ଇ" , // i
 		    "􀀥" , "ଇ" , // i
-		    "C" , "ଈ" , // ii
 		    "D" , "ଉ" , // u
 		    "􀀧" , "ଉ" , // u
 		    "E" , "ଊ" , // U
@@ -642,11 +625,8 @@
 		    "􀀪" , "ଐ" , // ai
 		    "H" , "ଓ" , // o
 		    "I" , "ଔ" , // au
-		    "K" , "ଔ" , // au
-		    "=" , "ଣ୍ଠ" , // nttha
-		    "—" , "ଦ୍ଭ" , // dbha
-		    "#" , "ି"    
-		  );
+		    "K" , "ଔ"     // au
+		 );
 
 		  var conversion_array_length = conversion_array.length;
 		  var modified_substring = document.getElementById("input_text").value;  
