@@ -102,7 +102,8 @@ function akruti_to_unicode()
     "š" , "ତ୍ପ" , // tp
     "›" , "ତ୍ସ" , // ts
     "œ" , "ତ୍ସ୍ନ" , // t-s-n
-    "Ÿ" , "ଦ୍ଧ" , // d-dh
+    "Ÿ" , "ଦ୍ଦ" , // d-d
+    "¡" , "ଦ୍ଧ" , // d-dh
 
 
     "{" , "ଜ୍ଜ" , // jj
@@ -268,9 +269,9 @@ function akruti_to_unicode()
         } 
       }
       // following statements for adjusting position of e, ai, o and au maatraas.
-      input_string = input_string.replace(/([ù])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯୟରଲବୱଶଷସହକ୍ଷଡ଼ଳ])/g , "$2$1");
+      input_string = input_string.replace(/([ù])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯୟରଲବୱଶଷସହକ୍ଷଡ଼ଳଦ୍ଦଦ୍ଦ])/g , "$2$1");
       //ଟଠଡଡ଼ଢଢ଼ଣତଥ
-      input_string = input_string.replace(/([ù])([୍])([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥନପଫବଭମୟରଲବୱଶଷସହକ୍ଷଡ଼ଳ])/g , "$2$3$1");
+      input_string = input_string.replace(/([ù])([୍])([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥନପଫବଭମୟରଲବୱଶଷସହକ୍ଷଡ଼ଳଦ୍ଦଦ୍ଦ])/g , "$2$3$1");
       input_string = input_string.replace(/ùø/g  ,  "ୌ");
       input_string = input_string.replace(/ùା/g  ,  "ୋ");
       input_string = input_string.replace(/ù÷/g  ,  "ୈ");
@@ -281,6 +282,15 @@ function akruti_to_unicode()
       input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([୍])à/g , "ð$1$2");
       input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([୍])ð/g , "ð$1$2");
       input_string = input_string.replace(/ð/g , "ର୍");
+      // ys phala like bidyut issue
+      input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([ାିୀୁୂୃେୈୋୌଂଁ])([୍])([ୟ])/g , "$1$3$4$2");
+      //d+d
+      input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([େ])([୍])([ର])([୍])([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])/g , "$4$3$1$5$6$2");
+      // patni
+      input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([ô])/g , "$2$1");
+      //ra phala 
+      input_string = input_string.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([ାିୀୁୂୃେୈୋୌଂଁ])([୍])([ର])/g , "$1$3$4$2");
+
       input_string = input_string.replace(/([ଂଁ])([ାିୀୁୂୃେୈୋୌ])/g , "$2$1");
     } // end of IF  statement  meant to  suppress processing of  blank  string.
 
