@@ -564,8 +564,12 @@
 			source: 'rules/sah/sah-transliteration.js'
 		},
 		'sat-inscript2': {
-			name: 'इनस्क्रिप्ट २',
+			name: 'inskript2',
 			source: 'rules/sat/sat-inscript2.js'
+		},
+		'sat-sarjom-baha': {
+			name: 'sarjom baha',
+			source: 'rules/sat/sat-sarjom-baha.js'
 		},
 		'si-singlish': {
 			name: 'සිංග්ලිෂ්',
@@ -895,8 +899,8 @@
 			inputmethods: [ 'sa-transliteration', 'sa-inscript2', 'sa-inscript', 'sa-iast' ]
 		},
 		sat: {
-			autonym: 'संताली',
-			inputmethods: [ 'sat-inscript2' ]
+			autonym: 'ᱥᱟᱱᱛᱟᱞᱤ',
+			inputmethods: [ 'sat-inscript2', 'sat-sarjom-baha' ]
 		},
 		sd: {
 			autonym: 'सिंधी',

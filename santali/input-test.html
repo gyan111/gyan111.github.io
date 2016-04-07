@@ -32,7 +32,7 @@
 		.span_8 { width: 88.49%; }
 
 		.input {
-			height: 250px;
+			height: 200px;
 			width: 100%;
 			border: 1px solid #ccc;
 			margin-top: 15px;
@@ -111,15 +111,6 @@
 	</div>
 	<div class="col span_2"></div>
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-73017066-1', 'auto');
-  ga('send', 'pageview');
-</script>
 <!--Jquery -->
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -131,7 +122,7 @@
 <script src="plugin/jquery.ime/src/jquery.ime.inputmethods.js"></script>
 <!--Custom Sccript -->
 <script type="text/javascript">
-		$('#input').ime();
+		$( 'textarea, [contenteditable], input[type=text], input[type=search], input:not([type])' ).ime();
 	</script>
 </body>
 </html>
