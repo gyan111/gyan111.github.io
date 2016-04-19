@@ -1,7 +1,7 @@
 ( function ( $ ) {
 	'use strict';
 
-	var satSarjombaha = {
+	var satSarjomBaha = {
 		id: 'sat-sarjom-baha',
 		name: 'sarjom baha',
 		description: 'Phonetic keyboard, Sarojam Baha for Santali language',
@@ -78,6 +78,6 @@
 			[ '9', '᱙' ]
 		]
 	};
-	$.ime.register( satSarjombaha );
+	$.ime.register( satSarjomBaha );
 
 }( jQuery ) );
