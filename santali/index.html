@@ -108,7 +108,7 @@
 <div class="section group">
 	<div class="col span_2"></div>
 	<div class="col span_8">
-		<textarea class="input" placeholder="Press Ctrl+m and type here" id="input"></textarea>
+		<textarea autofocus class="input" placeholder="Press Ctrl+m and type here" id="input"></textarea>
 	</div>
 	<div class="col span_2"></div>
 </div>
@@ -150,7 +150,9 @@
 <script src="plugin/jquery.ime/src/jquery.ime.inputmethods.js"></script>
 <!--Custom Sccript -->
 <script type="text/javascript">
-		$( 'textarea, [contenteditable], input[type=text], input[type=search], input:not([type])' ).ime();
+		$( 'textarea' ).ime();
+		// $( '#input').focus();
+		$("#input").eq(0).focus()
 	</script>
 </body>
 </html>
