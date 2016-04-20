@@ -902,7 +902,6 @@
 			autonym: 'ᱥᱟᱱᱛᱟᱞᱤ',
 			inputmethods: [ 'sat-inscript2', 'sat-sarjom-baha' ]
 		},
-		
 		sd: {
 			autonym: 'सिंधी',
 			inputmethods: [ 'sd-inscript2' ]
