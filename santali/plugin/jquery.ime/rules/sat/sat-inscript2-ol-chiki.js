@@ -1,7 +1,7 @@
 ( function ( $ ) {
 	'use strict';
 
-	var satInScript2 = {
+	var satInScript2OlChiki = {
 		id: 'sat-inscript2-ol-chiki',
 		name: 'inscript2',
 		description: 'Enhanced Ol Chiki InScript keyboard for Santali language',
@@ -59,6 +59,6 @@
 			[ '\\/', 'ᱭ' ]
 		]
 	};
-	$.ime.register( satInScript2 );
+	$.ime.register( satInScript2OlChiki );
 
 }( jQuery ) );
