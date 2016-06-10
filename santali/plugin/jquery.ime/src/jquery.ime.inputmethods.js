@@ -903,8 +903,8 @@
 			inputmethods: [ 'sa-transliteration', 'sa-inscript2', 'sa-inscript', 'sa-iast' ]
 		},
 		sat: {
-			autonym: 'संताली (ᱥᱟᱱᱛᱟᱞᱤ)',
-			inputmethods: [ 'sat-inscript2', 'sat-inscript2-ol-chiki', 'sat-sarjom-baha' ]
+			autonym: 'ᱥᱟᱱᱛᱟᱞᱤ',
+			inputmethods: [ 'sat-sarjom-baha', 'sat-inscript2-ol-chiki', 'sat-inscript2' ]
 		},
 		sd: {
 			autonym: 'सिंधी',
