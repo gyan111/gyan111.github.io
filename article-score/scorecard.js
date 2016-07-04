@@ -1,5 +1,5 @@
-// Hide the table when the page loads fot the first time.
-$('#score_card_table').hide()
+// Hide the score display div when the page loads fot the first time.
+$('#score_details').hide()
 
 // Operation after clicking the display score button.
 $('body').on('click', '#display_score', function(e) {
@@ -29,7 +29,7 @@ $('body').on('click', '#display_score', function(e) {
 
     // Make request to get the categories.
     $.getJSON(categoryURL, function(data) {
-
+        
         // check if there is page data available for the category requested.
         if (typeof data.query.categorymembers != "undefined" && data.query.categorymembers != null && data.query.categorymembers.length > 0) {
             
@@ -59,7 +59,7 @@ $('body').on('click', '#display_score', function(e) {
                     $(tableNewRow).appendTo("#score_card_table tbody");
 
                     // Display the table.
-                    $('#score_card_table').show()
+                    $('#score_details').show()
                 });
             });
         } else {
@@ -69,8 +69,21 @@ $('body').on('click', '#display_score', function(e) {
             return false;
         }
     }).fail(function() {
-        sweetAlert("Oops...Error!", "Check the Labuage Code.", "error");
+        sweetAlert("Oops...Error!", "Check the Lanuage Code.", "error");
         return false;
+    });
+});
+
+$(document).ready(function(){
+    $('#score_card_table').DataTable( {
+        "order": [[ 1, "desc" ]],
+        "paging":   false,
+        "info":     false,
+        "bFilter":  false,
+        "columnDefs": [ {
+          "targets": [ 0,2,3,4,5,6,7,8,9,10,11,12 ],
+          "orderable": false,
+        } ]
     });
 });
 
@@ -184,9 +197,8 @@ function calulateScore(text) {
     fleschReadingEase = fleschReadingEase < 0 ? 0 : fleschReadingEase;
 
     // Creating html table data to show in the result.
-    return '<td>' + totalCharacters + '</td><td>' + lettersAndNumbers + '</td><td>' + spaces + '</td><td>' + sentences +
-        '</td><td>' + syllables + '</td><td>' + sentences + '</td><td>' + characterWithoutSpaces + '</td><td>' + wordsCount +
-        '</td><td>' + wordsPerSentence + '</td><td>' + averageWordLength + '</td><td>' + complexWordsCount +
-        '</td><td>' + gunningFogIndex + '</td><td>' + colemanLiauIndex + '</td><td>' + automatedReadabilityIndex +
-        '</td><td>' + smogGrade + '</td><td>' + fleschKincaidGrade + '</td><td>' + fleschReadingEase + '</td>';
+    return '<td>' + automatedReadabilityIndex +'</td><td>' + smogGrade + '</td><td>' + fleschKincaidGrade + 
+        '</td><td>' + fleschReadingEase + '</td><td>' + gunningFogIndex + '</td><td>' + totalCharacters + 
+        '</td><td>' + spaces + '</td><td>' + sentences +'</td><td>' + syllables + '</td><td>' + wordsCount +
+        '</td><td>' + wordsPerSentence + '</td><td>' + averageWordLength + '</td>';
 }

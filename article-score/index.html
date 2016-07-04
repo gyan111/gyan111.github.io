@@ -6,6 +6,13 @@
 	<meta name="viewport" content="width=device-width" />
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<style type="text/css">
+		#score_card_table {
+			table-layout: fixed;	
+		}
+		
+	</style>
 </head>
 <body>
 	<div class="container">
@@ -18,7 +25,8 @@
 	        	<form class="form-inline">
 				    <div class="form-group">
 				    	<label class="sr-only" for="language_code">Language Code</label>
-				        <input type="text" class="form-control" id="language_code" maxlength="3" size="7" placeholder="Lang Code">
+				    	<!-- manually kept the value en, it can changed to test on other languages -->
+				        <input type="text" value="en" class="form-control" id="language_code" maxlength="3" size="7" placeholder="Lang Code">
 				    </div>
 				    <div class="form-group">
 				        <label class="sr-only" for="categoty_name">Category Name</label>
@@ -29,36 +37,37 @@
 			</div>
 	    </div>
 	    <hr>
-	    <table class="table table-bordered table-hover table-striped" id="score_card_table">
-		  	<thead>
-		        <th>Page</th>
-		        <th>Total Characters</th>
-				<th>Letters And Numbers</th>
-				<th>Spaces</th>
-				<th>Sentences</th>
-				<th>Syllables</th>
-				<th>Sentences</th>
-				<th>Character Without Spaces</th>
-				<th>Words Count</th>
-				<th>Words Per Sentence</th>
-				<th>Average Word Length</th>
-				<th>Complex Words Count</th>
-				<th>Gunning Fog Index</th>
-				<th>Coleman-Liau Index</th>
-				<th>Automated Readability Index</th>
-				<th>SMOG grade</th>
-				<th>Flesch–Kincaid grade</th>
-				<th>Flesch Reading Ease</th>
-		    </thead>
-		    <tbody>
+	    <div id="score_details">
+	    	<p>The data is sorted according to ARI(Automated Readability Index), however, others factors are also given to consider the readability in more depth.</p>
+		    <table class="table table-bordered table-hover table-striped" id="score_card_table">
+			  	<thead>
+			        <th>Page</th>
+					<th>Automated Readability Index</th>
+					<th>SMOG grade</th>
+					<th>Flesch–Kincaid grade</th>
+					<th>Flesch Reading Ease</th>
+					<th>Gunning Fog Index</th>
+					<th>Total Characters</th>
+					<th>Spaces</th>
+					<th>Sentences</th>
+					<th>Syllables</th>
+					<th>Words Count</th>
+					<th>Words Per Sentence</th>
+					<th>Average Word Length</th>
+			    </thead>
+			    <tbody>
 
-		    </tbody>
-		</table>
+			    </tbody>
+			</table>
+			<hr>
+		</div>
 	</div>
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <!--Sweet Alert-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
 <script src="scorecard.js"></script>	
 </body>
 </html>
