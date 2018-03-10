@@ -1145,18 +1145,6 @@ function apranta_to_unicode() {
 function sambad_eml_to_unicode() {
     check_input();
   var conversion_array = new Array(
-	//"\uE838\uE8EB","ିର୍ ",
-	"\uE976\uE8F6","\uE8F6\uE976",
-	"\uE991","୍‍",
-	"\uE823\uE8EF","ଥି",
-	"\uE825\uE8EF","ଧି",
-	"\uE814\uE8EF","ଖି",
-	"\uE976","ୁ",
-	"\uE98E","ୁ",
-	"\uE997","ୁ",
-	"\uE996","ୁ",
-	"\uE8F1","\uE838\uE8EB",
-	"\uE82D\uE8F6","ର‍୍ୟ",//ର+zwj+୍ୟ
     "\uE807" , "ଅ" , // a
     "\uE808" , "ଆ" , // aa
     "\uE809" , "ଇ" , // i
@@ -1230,16 +1218,15 @@ function sambad_eml_to_unicode() {
 
     "\uE835" , "଼" , // nukta
     "\uE836" , "ଽ" , // virama
-	"  \uE837" , " ।" , // purnached
-	" \uE837" , " ।" , // purnached
     "\uE837" , "ା" , // aa kara
     "\uE838" , "ି" , // i kara
     "\uE839" , "ୀ" , // dirgha i kara
     "\uE83A" , "ୁ" , // u kara
     "\uE83B" , "ୂ" , // dirgha i kara
     "\uE83C" , "ୃ" , // ru kara
-    //"\uE842" , "ୖ" , // ru kara
-    //"\uE843" , "ୗ" , // ru kara
+    "\uE83D" , "େ" , // ru kara
+    "\uE842" , "ୖ" , // ru kara
+    "\uE843" , "ୗ" , // ru kara
 
     "\uE8F3" , "ଖି" ,
     "\uE8F4" , "ଥି" ,
@@ -1251,14 +1238,14 @@ function sambad_eml_to_unicode() {
     "\uE806", "ଃ" , // bisarga
     "\uE841", "୍‌" , //halanta
 
-    //"\uE8EB", "ର୍" ,
+    "\uE8EB", "ର୍" ,
     "\uE8EC", "୍ର" ,
     "\uE8ED", "୍ରୁ" ,
     "\uE8EE", "୍ରୂ" ,
     "\uE8F0", "ିଁ" ,
     //"\uE8F1", "ର୍ି" ,
     //"\uE8F2", "୍ର" ,
-    //"\uE8F6" , "୍ୟ" ,
+    "\uE8F6" , "୍ୟ" ,
 
     "\uE855", "\'" , //singlequote
     "\uE857", "\"" , //dblquote
@@ -1398,7 +1385,7 @@ function sambad_eml_to_unicode() {
     "\uE8E8" , "ହ୍ନ" ,
     "\uE8E9" , "ହ୍ମ" ,
     "\uE8EA" , "ହ୍ଲ" ,
-	
+
     "\uE944", "ଚ୍ଛ୍ୱ" ,
     "\uE945", "ବ୍ଦ" ,
     "\uE978", "ପ୍ଟ" ,
@@ -1430,7 +1417,7 @@ function sambad_eml_to_unicode() {
     "\uE90E" , "ଭ୍ର" ,
     "\uE90F" , "ମ୍ର" ,
     "\uE910" , "ଯ୍ର" ,
-    //"\uE911" , "ର୍ର" ,
+    "\uE911" , "ର୍ର" ,
     "\uE912" , "ଲ୍ର" ,
     "\uE913" , "ଳ୍ର" ,
     "\uE914" , "ଵ୍ର" ,
@@ -1510,10 +1497,7 @@ function sambad_eml_to_unicode() {
     "\uE964" , "୍ଶ" ,
     "\uE965" , "୍ଷ" ,
     "\uE966" , "୍ସ" ,
-    "\uE967" , "୍ହ",
-	"୍ୱ\uE8EB","\uE8EB୍ୱ",
-	"୍ୟ\uE8EB","\uE8EB୍ୟ",
-	"ଅା","ଆ"
+    "\uE967" , "୍ହ"
   );
   var conversion_array_length = conversion_array.length;
   var modified_substring = document.getElementById("input_text").value;
@@ -1547,30 +1531,28 @@ function sambad_eml_to_unicode() {
           index = modified_substring.indexOf(conversion_array[conversion_character_index])
         } // end of while-00 loop
       } // end of for loop
-modified_substring = modified_substring.replace(   /([କନମପସ])([\uE8EF])/g , "ତ୍$1" ) ;
-
-// following statements for adjusting position of e, ai, o and au maatraas.
-	
-modified_substring = modified_substring.replace(   /([\uE83D])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳୱଶଷସହକ୍ଷଜ୍ଞୟ])/g , "$2$1" ) ;
-modified_substring = modified_substring.replace( /([\uE83D])([୍])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳୱଶଷସହକ୍ଷଜ୍ଞୟ])/g , "$2$3$1" ) ;
-modified_substring = modified_substring.replace( /([\uE83D])([୍])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳୱଶଷସହକ୍ଷଜ୍ଞୟ])/g , "$2$3$1" ) ;
-modified_substring = modified_substring.replace( /\uE83D\uE842/g  ,  "ୈ" ) ;
-modified_substring = modified_substring.replace( /\uE83Dା/g  ,  "ୋ" ) ;
-modified_substring = modified_substring.replace( /\uE83D\uE843/g  ,  "ୌ" ) ;
-modified_substring = modified_substring.replace( /\uE83D/g   ,  "େ" ) ;
-//following three statement for adjusting position of reph ie, half r .
-modified_substring = modified_substring.replace( /([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳୱଶଷସହକ୍ଷୟ])([ାିୀୁୂୃେୈୋୌଂଁ]*)([\uE8EB])/g , "\uE8EB$1$2" ) ;
-modified_substring = modified_substring.replace( /([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳୱଶଷସହକ୍ଷୟ])([\u0B4D])([\uE8EB])/g , "\uE8EB$1୍" ) ;
-modified_substring = modified_substring.replace( /\uE8EB/g , "ର୍" ) ;
-modified_substring = modified_substring.replace( /([ଂଁ])([ାିୀୁୂୃେୈୋୌ])/g , "$2$1" ) ;
-
-// new added features...
-modified_substring = modified_substring.replace( /([୧୨୩୪୫୬୭୮୯୦])([ା।])([୧୨୩୪୫୬୭୮୯୦])/g , "$1|$3" ) ; // news paper style
-modified_substring = modified_substring.replace( /([ାିୀୁୂୃେୈୋୌ])([\uE8F6])/g , "$2$1" ) ;
-modified_substring = modified_substring.replace( /\uE8F6/g , "୍ୟ" ) ;
-modified_substring = modified_substring.replace( /େ୍ୱ/g , "୍ୱେ" ) ;
-//exceptions...
-		      //modified_substring = modified_substring.replace(/ଦ୍ଧ୍ୱର୍/g , "ର୍ଦ୍ଧ୍ୱ");
+      // see if the following needs to include more letters than  [କସ]
+      modified_substring = modified_substring.replace(  /([କସ])([ú])/g , "ତ୍$1");
+      // following statements for adjusting position of e, ai, o and au maatraas.
+      modified_substring = modified_substring.replace(  /([Ò])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳୱଶଷସହକ୍ଷଜ୍ଞୟ])/g , "$2$1");
+      modified_substring = modified_substring.replace(/([Ò])([୍])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳୱଶଷସହକ୍ଷଜ୍ଞୟ])/g , "$2$3$1");
+      modified_substring = modified_substring.replace(/([Ò])([୍])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳୱଶଷସହକ୍ଷଜ୍ଞୟ])/g , "$2$3$1");
+      modified_substring = modified_substring.replace(/Òß/g  ,  "ୈ");
+      modified_substring = modified_substring.replace(/Òା/g  ,  "ୋ");
+      modified_substring = modified_substring.replace(/Ò×/g  ,  "ୌ");
+      modified_substring = modified_substring.replace(/Ò/g   ,  "େ");
+      //following three statement for adjusting position of reph ie, half r .
+      modified_substring = modified_substring.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳୱଶଷସହକ୍ଷଜ୍ଞୟ])([ାିୀୁୂୃେୈୋୌଂଁ]*)à/g , "à$1$2");
+      modified_substring = modified_substring.replace(/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳୱଶଷସହକ୍ଷଜ୍ଞୟ])([୍])à/g , "à$1$2");
+      modified_substring = modified_substring.replace(/à/g , "ର୍");
+      modified_substring = modified_substring.replace(/([ଂଁ])([ାିୀୁୂୃେୈୋୌ])/g , "$2$1");
+      // new added features...
+      modified_substring = modified_substring.replace(/([୧୨୩୪୫୬୭୮୯୦])([ା।])([୧୨୩୪୫୬୭୮୯୦])/g , "$1|$3"); // news paper style
+      modified_substring = modified_substring.replace(/([ାିୀୁୂୃେୈୋୌ])([Ô])/g , "$2$1");
+      modified_substring = modified_substring.replace(/Ô/g , "୍ୟ");
+      modified_substring = modified_substring.replace(/େ୍ୱ/g , "୍ୱେ");
+      //exceptions...
+      modified_substring = modified_substring.replace(/ଦ୍ଧ୍ୱର୍/g , "ର୍ଦ୍ଧ୍ୱ");
       modified_substring = modified_substring.replace( 'ୁ୍ୟ' , "୍ୟୁ");
       modified_substring = modified_substring.replace( 'ି୍ୟ' , "୍ୟି");
     } // end of IF  statement  meant to  suppress processing of  blank  string.
