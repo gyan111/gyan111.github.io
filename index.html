@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Odia Unicode Converter</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" />
+	<meta name="version" content="2.0" />
+	<meta name="author" content="Jnanaranjan Sahu (jsahu.me)">
+	<meta name="description" content="Odia Unicode Font Converter">
+	<meta name="keywords" content="Odia Unicode Converter, Odia Font converter, Oriya,Font Converter, Unicode Converter, Odia">
+	<link href="favicon.ico" rel="icon">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" crossorigin="anonymous" />
+	<link href="jquery.ime/css/jquery.ime.css" rel="stylesheet" />
+	<style type="text/css">
+		.converter-button {
+    		padding: .5rem 0rem;
+    	}
+    	@media (max-width: 576px) {
+    		.converter-button {
+    			margin-bottom: 5px;
+    		}
+    	}
+    	.clear-text {
+    		display: none;
+    	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row mt-3">
+			<div class="text-center col-sm-12">
+				<!-- <div class="alert alert-danger" role="alert">
+				  The service is down due to meintance. Please checkback later. <br>
+				  ଏବେ ଟିକେ କାମ କରୁନି, କିଛି ସମୟ ଛାଡି ଆସନ୍ତୁ ।
+				</div> -->
+				<h2><strong>Odia Unicode Converter</strong></h2>
+				<p align="center">
+					If you are having any issue, use the Imporved Converter which is updated with all new fixes.
+					<br>Contact me for any Help.
+				</p>
+				<a href="https://jsahu.me/tools/ouc" target="" class="btn btn-success btn-sm">Improved Converter</a>
+				<a href="https://jsahu.me/tools/ourc" target="" class="btn btn-dark btn-sm">Akruti Converter</a>
+				<a href="https://jsahu.me/tools/ouc" target="" class="btn btn-danger btn-sm">Wordpress Plugin</a>
+				<a href="https://jsahu.me/contact" target="" class="btn btn-secondary btn-sm">Contact</a>
+				<a href="https://jsahu.me/support" target="" class="btn btn-primary btn-sm">Support</a>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col-lg">
+				<button class="btn btn-primary btn-lg col-sm-2 converter-button" id="akruti">Akruti</button>
+				<button class="btn btn-primary btn-lg col-sm-2 converter-button" id="sreelipi">Sreelipi</button>
+				<button class="btn btn-primary btn-lg col-sm-2 converter-button" id="gist">GIST</button>
+				<button class="btn btn-primary btn-lg col-sm-2 converter-button" id="apranta">Apranta</button>
+				<button class="btn btn-primary btn-lg col-sm-3 converter-button" id="sambad">Sambad</button>
+				<div class="col-sm-12 text-center mt-2"> 
+					<button type="button" class="btn btn-dark btn-sm col-sm-8 clear-text">Clear text</button>
+				</div>
+				<div class="form-group mt-2">
+					<textarea class="form-control" rows="15" id="input_text" placeholder="Paste your copied text here and click on the buttons above..."></textarea>
+				</div>
+			</div>
+			<div class="col-lg">
+				<button type="button" id="unicode_text_button" class="btn btn-primary btn-lg btn-block">Click to select all and copy</button>
+				<div class="col-sm-12 text-center mt-2"> 
+					<button type="button" class="btn btn-dark btn-sm col-sm-8 clear-text">Clear text</button>
+				</div>
+				<div class="form-group mt-2">
+					<textarea class="form-control" rows="15" id="unicode_text" placeholder="Unicode text"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-3 mb-3">
+			<div class="col-sm-12">
+				<p align="center"><a href="https://jsahu.me/feedback">Share your issue/feedback</a></p>
+				<p class="text-center">
+					<a class="btn btn-success" data-toggle="collapse" href="#info" role="button" aria-expanded="false" aria-controls="info">
+			    		How to use?
+			  		</a>
+				</p>
+				<!-- <p class="text-center">
+					<a href="https://jsahu.me/thank-you" target="_blank" class="btn btn-danger btn-sm">Thank You for Supporting</a>
+				</p> -->
+				<div class="collapse" id="info">
+				  	<div class="card card-body">
+				  		This tool converts Odia language ASCII/Legacy character encoding to Unicode Encoding. There are five types of most used character conversion option available now. </br>
+				  		Copy the text from the source file and paste it in the left side box. Click on the source character type. If you don't know the type then click on all the buttons. </br>
+				  		After the successful conversion, the Unicode text will be shown on the right side box. You can copy the whole Unicode text by clicking on the right side button.</br>
+				  		If you want to make a small fix or write the new text you can do so by enabling the keyboard. Find the small keyboard image around the right text box and select the input method you want to type.</br>
+				  		You can clear text by clicking on the clear text button which will appear after each conversion.</br>
+				  		For any help or issue please contact me at @gyana111 or you can find more way to contact me if you click on my name below.</br>
+				  		Thank you!  
+				  	</div>
+				</div>
+				<div class="text-center col-sm-12 mt-3">
+					A free tool developed by <a href="https://jsahu.me" target="_blank">Gyana</a>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+	<script src="jquery.ime/libs/rangy/rangy-core.js"></script>
+	<script src="jquery.ime/src/jquery.ime.js"></script>
+	<script src="jquery.ime/src/jquery.ime.selector.js"></script>
+	<script src="jquery.ime/src/jquery.ime.preferences.js"></script>
+	<script src="jquery.ime/src/jquery.ime.inputmethods.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js" crossorigin="anonymous"></script>
+	<script src="script.js?5"></script>
+	
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-73017066-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+	<script type="text/javascript">
+		window['_fs_debug'] = false;
+		window['_fs_host'] = 'fullstory.com';
+		window['_fs_org'] = 'EMKCS';
+		window['_fs_namespace'] = 'FS';
+		(function(m,n,e,t,l,o,g,y){
+		    if (e in m) {if(m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');} return;}
+		    g=m[e]=function(a,b,s){g.q?g.q.push([a,b,s]):g._api(a,b,s);};g.q=[];
+		    o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+		    y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+		    g.identify=function(i,v,s){g(l,{uid:i},s);if(v)g(l,v,s)};g.setUserVars=function(v,s){g(l,v,s)};g.event=function(i,v,s){g('event',{n:i,p:v},s)};
+		    g.shutdown=function(){g("rec",!1)};g.restart=function(){g("rec",!0)};
+		    g.consent=function(a){g("consent",!arguments.length||a)};
+		    g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
+		    g.clearUserCookie=function(){};
+		})(window,document,window['_fs_namespace'],'script','user');
+	</script>
+	<script data-ad-client="ca-pub-4745279756262521" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "name": "jquery.ime",
+  "version": "0.2.0",
+  "description": "jQuery based internationalization library",
+  "homepage": "https://github.com/wikimedia/jquery.ime",
+  "keywords": [
+    "internationalization",
+    "localization",
+    "ime",
+    "jquery",
+    "l10n"
+  ],
+  "author": {
+    "name": "Santhosh Thottingal",
+    "email": "santhosh.thottingal@gmail.com"
+  },
+  "contributors": [
+    "Amir Aharoni <amir.aharoni@mail.huji.ac.il>",
+    "Pau Giner <pginer@wikimedia.org>",
+    "Niklas Laxstrom nlaxstrom@wikimedia.org",
+    "Srikanth Lakshmanan <srik.lak@gmail.com>"
+  ],
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-contrib-csslint": "1.0.0",
+    "grunt-contrib-jshint": "1.0.0",
+    "grunt-contrib-copy": "1.0.0",
+    "grunt-contrib-cssmin": "1.0.1",
+    "grunt-contrib-qunit": "1.1.0",
+    "grunt-contrib-concat": "1.0.0",
+    "grunt-contrib-uglify": "1.0.1",
+    "grunt-contrib-watch": "1.0.0",
+    "grunt-cli": "1.1.0",
+    "grunt-jscs": "2.8.0",
+    "jquery": ">=3.4.0",
+    "qunitjs": "1.22.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wikimedia/jquery.ime.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/wikimedia/jquery.ime/issues"
+    },
+  "engine": {
+    "node": ">=6.11.1"
+  },
+  "license": "(GPL-2.0+ OR MIT)",
+  "scripts": {
+     "test": "grunt test --verbose"
+  }
+}

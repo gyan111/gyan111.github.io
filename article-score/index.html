@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Article Readability Score Card</title>
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<style type="text/css">
+		#score_card_table {
+			table-layout: fixed;	
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Article Readability Score Card</h1>
+		<p>A tool to view the readability score of the first paragraph of articles belonging to a specific category.</p>
+		<hr>
+
+	    <div class="row">
+	    	<div class="col-sm-8">
+	        	<form class="form-inline">
+				    <div class="form-group">
+				    	<label class="sr-only" for="language_code">Language Code</label>
+				    	<!-- manually kept the value en, it can changed to test on other languages -->
+				        <input type="text" value="en" class="form-control" id="language_code" maxlength="3" size="7" placeholder="Lang Code">
+				    </div>
+				    <div class="form-group">
+				        <label class="sr-only" for="categoty_name">Category Name</label>
+				        <input type="text" class="form-control" id="categoty_name" placeholder="Category Name">
+				    </div>
+				    <button type="submit" class="btn btn-primary" id="display_score">Display Score</button>
+				</form>
+			</div>
+	    </div>
+	    <hr>
+	    <div id="score_details">
+	    	<p>The data is sorted according to ARI(Automated Readability Index), however, others factors are also given to consider the readability in more depth.</p>
+		    <table class="table table-bordered table-hover table-striped" id="score_card_table">
+			  	<thead>
+			        <th>Page</th>
+					<th>Automated Readability Index</th>
+					<th>SMOG grade</th>
+					<th>Flesch–Kincaid grade</th>
+					<th>Flesch Reading Ease</th>
+					<th>Gunning Fog Index</th>
+					<th>Total Characters</th>
+					<th>Spaces</th>
+					<th>Sentences</th>
+					<th>Syllables</th>
+					<th>Words Count</th>
+					<th>Words Per Sentence</th>
+					<th>Average Word Length</th>
+			    </thead>
+			    <tbody>
+
+			    </tbody>
+			</table>
+			<hr>
+		</div>
+	</div>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<!--Sweet Alert-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+<script src="scorecard.js"></script>	
+</body>
+</html>
